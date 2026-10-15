@@ -1,0 +1,171 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12352b">
+  <meta name="description" content="Trouvez des offres de chauffeur en Côte d’Ivoire.">
+  <title>ChaufCI — Emplois de chauffeur</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">C</span>Chauf<span class="brand-accent">CI</span>
+    </a>
+    <nav>
+      <a href="#jobs">Offres d’emploi</a>
+      <a href="#how">Comment ça marche</a>
+      <a href="#employers">Employeurs</a>
+    </nav>
+    <a class="nav-cta" href="#jobs">Trouver un emploi ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">● VOTRE PROCHAIN DÉPART COMMENCE ICI</p>
+        <h1>La bonne route.<br><em>Le bon emploi.</em></h1>
+        <p class="intro">
+          Découvrez des opportunités de chauffeur en Côte d’Ivoire.
+          Recherchez, comparez et contactez directement les employeurs.
+        </p>
+        <a class="primary-button" href="#jobs">Explorer les offres →</a>
+        <p class="trust">✓ Des annonces claires. Des candidatures directes.</p>
+      </div>
+      <div class="road-art" aria-label="Illustration décorative d'une route">
+        <div class="sun"></div>
+        <div class="hill hill-one"></div>
+        <div class="hill hill-two"></div>
+        <div class="road"><i></i><i></i><i></i></div>
+        <div class="floating-card">
+          <b>⌖ Abidjan et partout</b>
+          <small>En Côte d’Ivoire</small>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <span>CONÇU POUR LES CHAUFFEURS</span>
+        <span>FAIT POUR LA CÔTE D’IVOIRE</span>
+      </div>
+    </section>
+
+    <section class="search-wrap">
+      <p class="eyebrow">VOTRE RECHERCHE</p>
+      <h2>Quel volant cherchez-vous ?</h2>
+      <form id="search-form" class="search-panel">
+        <label>Mot-clé
+          <input id="keyword" type="search" placeholder="Ex. chauffeur personnel">
+        </label>
+        <label>Ville ou zone
+          <select id="city">
+            <option value="">Toutes les zones</option>
+            <option>Abidjan</option>
+            <option>Grand-Bassam</option>
+            <option>Koumassi</option>
+            <option>Marcory</option>
+            <option>Port-Bouët</option>
+            <option>Yopougon</option>
+            <option>Autre ville</option>
+          </select>
+        </label>
+        <label>Type de conduite
+          <select id="category">
+            <option value="">Toutes les catégories</option>
+            <option>Chauffeur personnel</option>
+            <option>Livraison</option>
+            <option>Camion poids lourd</option>
+            <option>Chauffeur d’entreprise</option>
+            <option>Taxi / VTC</option>
+          </select>
+        </label>
+        <button type="submit">Rechercher →</button>
+      </form>
+      <div class="quick">
+        <span>Populaires :</span>
+        <button type="button" data-filter="Chauffeur personnel">Chauffeur personnel</button>
+        <button type="button" data-filter="Livraison">Livraison</button>
+        <button type="button" data-filter="Camion poids lourd">Poids lourd</button>
+        <button type="button" data-filter="Taxi / VTC">Taxi / VTC</button>
+      </div>
+    </section>
+
+    <section id="jobs" class="jobs-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">OPPORTUNITÉS</p>
+          <h2>Les offres à explorer</h2>
+          <p>Consultez les détails et vérifiez les informations avant de postuler.</p>
+        </div>
+        <span id="result-count"></span>
+      </div>
+
+      <div class="demo-notice">
+        <b>ⓘ Version de démonstration</b>
+        <p>
+          Les annonces affichées sont fictives et servent uniquement à présenter
+          le site. Elles ne représentent pas actuellement des postes réels.
+        </p>
+      </div>
+
+      <div id="job-list" class="job-list" aria-live="polite"></div>
+
+      <div id="empty-state" class="empty" hidden>
+        <h3>Aucune annonce trouvée</h3>
+        <p>Essayez d’autres filtres.</p>
+        <button id="reset" class="outline-button" type="button">Effacer les filtres</button>
+      </div>
+
+      <p class="safety-note">
+        ChaufCI ne demande aucun paiement pour postuler. Vérifiez l’identité
+        de l’employeur avant de transmettre vos informations personnelles.
+      </p>
+    </section>
+
+    <section id="how" class="how-section">
+      <div>
+        <p class="eyebrow">SIMPLE ET DIRECT</p>
+        <h2>Trois étapes.<br><em>Une nouvelle route.</em></h2>
+        <p>Une façon plus simple de découvrir des pistes d’emploi.</p>
+      </div>
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>Recherchez</h3>
+          <p>Filtrez par ville, type de conduite ou mot-clé.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Vérifiez</h3>
+          <p>Lisez les exigences, le salaire publié et la date de mise à jour.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Contactez</h3>
+          <p>Utilisez le lien de candidature officiel de l’annonce.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="employers" class="employer">
+      <div>
+        <p class="eyebrow">VOUS RECRUTEZ ?</p>
+        <h2>Vous cherchez un chauffeur ?</h2>
+        <p>Nous préparons un espace pour les employeurs et les annonces vérifiables.</p>
+      </div>
+      <a href="mailto:contact@chaufci.ci?subject=Information%20employeur%20ChaufCI">
+        Contacter ChaufCI ↗
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#">
+      <span class="brand-icon">C</span>Chauf<span class="brand-accent">CI</span>
+    </a>
+    <p>Une recherche d’emploi plus simple pour les chauffeurs de Côte d’Ivoire.</p>
+    <small>© <span id="year"></span> ChaufCI · Version en développement</small>
+  </footer>
+</body>
+</html>
