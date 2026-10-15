@@ -371,16 +371,30 @@ async function loadJobsFromDatabase() {
 
 function setupSearch() {
   /*
-   * Read a category passed from the homepage, for example:
-   * jobs.html?category=livraison
+   * Restore the homepage search:
+   * jobs.html?keyword=driver&city=Abidjan&category=livraison
    */
-  const requestedCategory = new URLSearchParams(
-    window.location.search
-  ).get("category");
+  const params = new URLSearchParams(window.location.search);
+
+  const requestedKeyword = params.get("keyword") ?? "";
+  const requestedCity = params.get("city") ?? "";
+  const requestedCategory = params.get("category") ?? "";
+
+  if (keywordInput) {
+    keywordInput.value = requestedKeyword;
+  }
+
+  if (
+    citySelect &&
+    Array.from(citySelect.options).some(
+      (option) => option.value === requestedCity
+    )
+  ) {
+    citySelect.value = requestedCity;
+  }
 
   if (
     categorySelect &&
-    requestedCategory &&
     Object.prototype.hasOwnProperty.call(
       CATEGORY_LABELS,
       requestedCategory
