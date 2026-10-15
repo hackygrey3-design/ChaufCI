@@ -47,6 +47,7 @@ function escapeHTML(value) {
       '"': "&quot;",
       "'": "&#39;"
     };
+
     return entities[character];
   });
 }
@@ -84,6 +85,7 @@ function formatDate(value) {
 function isSafeExternalURL(value) {
   try {
     const url = new URL(String(value ?? ""));
+
     return url.protocol === "https:" && Boolean(url.hostname);
   } catch {
     return false;
@@ -95,6 +97,7 @@ function isVerifiedAndCurrent(job) {
   if (!isSafeExternalURL(job.sourceUrl)) return false;
 
   const checkedDate = parseISODate(job.lastChecked);
+
   if (!checkedDate) return false;
 
   const today = new Date();
@@ -110,6 +113,7 @@ function isVerifiedAndCurrent(job) {
 
   if (job.deadline) {
     const deadline = parseISODate(job.deadline);
+
     if (!deadline || deadline.getTime() < today.getTime()) {
       return false;
     }
@@ -366,6 +370,25 @@ async function loadJobsFromDatabase() {
 }
 
 function setupSearch() {
+  /*
+   * Read a category passed from the homepage, for example:
+   * jobs.html?category=livraison
+   */
+  const requestedCategory = new URLSearchParams(
+    window.location.search
+  ).get("category");
+
+  if (
+    categorySelect &&
+    requestedCategory &&
+    Object.prototype.hasOwnProperty.call(
+      CATEGORY_LABELS,
+      requestedCategory
+    )
+  ) {
+    categorySelect.value = requestedCategory;
+  }
+
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
 
