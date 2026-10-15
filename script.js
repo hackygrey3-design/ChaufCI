@@ -2,42 +2,9 @@
 "use strict";
 
 /*
- * ChaufCI — Job search and listing engine
- *
- * Publishing rules:
- * 1. Never publish fictional or demonstration vacancies.
- * 2. Every listing must link to its original source.
- * 3. Verify listings within the last 7 days.
- * 4. Remove listings with expired application deadlines.
- * 5. Never invent salary, employer, requirements, or deadlines.
- *
- * Add verified listings to JOBS below.
- * Dates must use YYYY-MM-DD format.
+ * ChaufCI — Recherche d'offres depuis Supabase.
+ * Aucune annonce de démonstration n'est affichée.
  */
-
-const JOBS = [
-  /*
-  Example structure — NOT a real vacancy.
-  Do not uncomment this example or publish it.
-
-  {
-    id: "unique-listing-id",
-    title: "Verified job title",
-    employer: "Actual employer name",
-    city: "Abidjan",
-    category: "entreprise",
-    salary: "Use the published salary, or Non communiqué",
-    contract: "Use the published contract type",
-    description: "Summary based on the original listing",
-    requirements: "Requirements from the original listing",
-    deadline: "2026-10-30",
-    sourceUrl: "https://example.com/original-listing",
-    applicationUrl: "https://example.com/apply",
-    verified: true,
-    lastChecked: "2026-10-15"
-  }
-  */
-];
 
 const CATEGORY_LABELS = {
   personnel: "Chauffeur personnel",
@@ -59,6 +26,10 @@ const resetButton = document.querySelector("#reset");
 const MAX_VERIFICATION_AGE_DAYS = 7;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+let jobs = [];
+let loadFailed = false;
+let isLoading = false;
+
 function normalize(value) {
   return String(value ?? "")
     .normalize("NFD")
@@ -76,7 +47,6 @@ function escapeHTML(value) {
       '"': "&quot;",
       "'": "&#39;"
     };
-
     return entities[character];
   });
 }
@@ -101,9 +71,7 @@ function parseISODate(value) {
 function formatDate(value) {
   const date = parseISODate(value);
 
-  if (!date) {
-    return "Non communiquée";
-  }
+  if (!date) return "Non communiquée";
 
   return new Intl.DateTimeFormat("fr-FR", {
     day: "numeric",
@@ -116,7 +84,6 @@ function formatDate(value) {
 function isSafeExternalURL(value) {
   try {
     const url = new URL(String(value ?? ""));
-
     return url.protocol === "https:" && Boolean(url.hostname);
   } catch {
     return false;
@@ -124,19 +91,11 @@ function isSafeExternalURL(value) {
 }
 
 function isVerifiedAndCurrent(job) {
-  if (job.verified !== true) {
-    return false;
-  }
-
-  if (!job.sourceUrl || !isSafeExternalURL(job.sourceUrl)) {
-    return false;
-  }
+  if (!job || job.verified !== true) return false;
+  if (!isSafeExternalURL(job.sourceUrl)) return false;
 
   const checkedDate = parseISODate(job.lastChecked);
-
-  if (!checkedDate) {
-    return false;
-  }
+  if (!checkedDate) return false;
 
   const today = new Date();
   today.setUTCHours(0, 0, 0, 0);
@@ -151,7 +110,6 @@ function isVerifiedAndCurrent(job) {
 
   if (job.deadline) {
     const deadline = parseISODate(job.deadline);
-
     if (!deadline || deadline.getTime() < today.getTime()) {
       return false;
     }
@@ -165,10 +123,6 @@ function isVerifiedAndCurrent(job) {
     CATEGORY_LABELS[job.category] &&
     job.description
   );
-}
-
-function getPublishedJobs() {
-  return JOBS.filter(isVerifiedAndCurrent);
 }
 
 function getSearchText(job) {
@@ -189,27 +143,32 @@ function getFilteredJobs() {
   const selectedCity = citySelect?.value ?? "";
   const selectedCategory = categorySelect?.value ?? "";
 
-  return getPublishedJobs().filter((job) => {
+  return jobs.filter((job) => {
     const matchesKeyword =
       !keyword || normalize(getSearchText(job)).includes(keyword);
 
     let matchesCity = true;
 
     if (selectedCity === "Côte d'Ivoire") {
-      matchesCity = !["abidjan", "soubre"].includes(normalize(job.city));
+      matchesCity = !["abidjan", "soubre"].includes(
+        normalize(job.city)
+      );
     } else if (selectedCity) {
-      matchesCity = normalize(job.city) === normalize(selectedCity);
+      matchesCity =
+        normalize(job.city) === normalize(selectedCity);
     }
 
-    const matchesCategory =
-      !selectedCategory || job.category === selectedCategory;
-
-    return matchesKeyword && matchesCity && matchesCategory;
+    return (
+      matchesKeyword &&
+      matchesCity &&
+      (!selectedCategory || job.category === selectedCategory)
+    );
   });
 }
 
 function renderJob(job) {
   const category = CATEGORY_LABELS[job.category];
+
   const applicationURL = isSafeExternalURL(job.applicationUrl)
     ? job.applicationUrl
     : job.sourceUrl;
@@ -217,10 +176,6 @@ function renderJob(job) {
   const deadline = job.deadline
     ? formatDate(job.deadline)
     : "Non communiquée";
-
-  const salary = job.salary || "Non communiqué";
-  const contract = job.contract || "Non communiqué";
-  const requirements = job.requirements || "Consultez l'annonce originale.";
 
   return `
     <article class="job-card">
@@ -237,10 +192,12 @@ function renderJob(job) {
       <div class="job-details">
         <span>📍 ${escapeHTML(job.city)}</span>
         <span>💼 ${escapeHTML(category)}</span>
-        <span>📄 ${escapeHTML(contract)}</span>
+        <span>📄 ${escapeHTML(job.contract || "Non communiqué")}</span>
       </div>
 
-      <p class="job-salary">${escapeHTML(salary)}</p>
+      <p class="job-salary">
+        ${escapeHTML(job.salary || "Non communiqué")}
+      </p>
 
       <p class="job-description">
         ${escapeHTML(job.description)}
@@ -248,7 +205,7 @@ function renderJob(job) {
 
       <p class="job-description">
         <strong>Conditions :</strong>
-        ${escapeHTML(requirements)}
+        ${escapeHTML(job.requirements || "Consultez l'annonce originale.")}
       </p>
 
       <p class="job-updated">
@@ -271,6 +228,17 @@ function renderJob(job) {
   `;
 }
 
+function showEmptyState(title, message) {
+  if (jobList) jobList.hidden = true;
+  if (emptyState) emptyState.hidden = false;
+
+  const heading = emptyState?.querySelector("h3");
+  const paragraph = emptyState?.querySelector("p");
+
+  if (heading) heading.textContent = title;
+  if (paragraph) paragraph.textContent = message;
+}
+
 function renderJobs() {
   if (!jobList || !resultCount || !emptyState) {
     console.error(
@@ -279,81 +247,138 @@ function renderJobs() {
     return;
   }
 
-  const publishedJobs = getPublishedJobs();
+  if (isLoading) {
+    resultCount.textContent = "Chargement des offres…";
+    jobList.setAttribute("aria-busy", "true");
+
+    showEmptyState(
+      "Chargement des offres",
+      "ChaufCI recherche les annonces publiées et vérifiées."
+    );
+
+    if (resetButton) {
+      resetButton.disabled = true;
+      resetButton.textContent = "Chargement…";
+    }
+
+    return;
+  }
+
+  if (resetButton) {
+    resetButton.disabled = false;
+    resetButton.textContent = loadFailed
+      ? "Réessayer"
+      : "Effacer les filtres";
+  }
+
+  if (loadFailed) {
+    resultCount.textContent = "Offres indisponibles";
+
+    showEmptyState(
+      "Impossible de charger les offres",
+      "Vérifiez votre connexion puis réessayez. Aucune annonce non vérifiée ne sera affichée."
+    );
+
+    jobList.setAttribute("aria-busy", "false");
+    return;
+  }
+
   const filteredJobs = getFilteredJobs();
 
   jobList.innerHTML = filteredJobs.map(renderJob).join("");
 
-  const count = filteredJobs.length;
   resultCount.textContent =
-    `${count} offre${count !== 1 ? "s" : ""}`;
+    `${filteredJobs.length} offre${filteredJobs.length !== 1 ? "s" : ""}`;
 
-  if (count > 0) {
+  if (filteredJobs.length > 0) {
     emptyState.hidden = true;
     jobList.hidden = false;
   } else {
-    jobList.hidden = true;
-    emptyState.hidden = false;
-
-    const heading = emptyState.querySelector("h3");
-    const message = emptyState.querySelector("p");
-
-    if (publishedJobs.length === 0) {
-      if (heading) {
-        heading.textContent = "Aucune offre vérifiée pour le moment";
-      }
-
-      if (message) {
-        message.textContent =
-          "De nouvelles annonces seront affichées après vérification de leur source et de leur disponibilité. Revenez consulter ChaufCI.";
-      }
-    } else {
-      if (heading) {
-        heading.textContent = "Aucune offre ne correspond";
-      }
-
-      if (message) {
-        message.textContent =
-          "Essayez un autre mot-clé ou élargissez votre recherche.";
-      }
-    }
+    showEmptyState(
+      jobs.length > 0
+        ? "Aucune offre ne correspond"
+        : "Aucune offre vérifiée pour le moment",
+      jobs.length > 0
+        ? "Essayez un autre mot-clé ou élargissez votre recherche."
+        : "De nouvelles annonces seront affichées après vérification de leur source et de leur disponibilité. Revenez consulter ChaufCI."
+    );
   }
 
   jobList.setAttribute("aria-busy", "false");
 }
 
-function resetSearch() {
-  form?.reset();
-  updateQuickFilters();
-  renderJobs();
-}
-
 function updateQuickFilters() {
   document.querySelectorAll("[data-filter]").forEach((button) => {
-    const active =
-      categorySelect?.value === button.dataset.filter;
+    const active = categorySelect?.value === button.dataset.filter;
 
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", String(active));
   });
 }
 
-function setupSearch() {
-  if (form) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      updateQuickFilters();
-      renderJobs();
-
-      document.querySelector("#jobs")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+function resetSearch() {
+  if (loadFailed) {
+    loadJobsFromDatabase();
+    return;
   }
 
-  keywordInput?.addEventListener("input", renderJobs);
+  form?.reset();
+  updateQuickFilters();
+  renderJobs();
+}
 
+async function loadJobsFromDatabase() {
+  if (isLoading) return;
+
+  if (typeof window.ChaufCI?.loadJobs !== "function") {
+    loadFailed = true;
+
+    console.error(
+      "ChaufCI : supabase.js n'a pas chargé la fonction loadJobs."
+    );
+
+    renderJobs();
+    return;
+  }
+
+  isLoading = true;
+  loadFailed = false;
+  renderJobs();
+
+  try {
+    const result = await window.ChaufCI.loadJobs();
+
+    jobs = Array.isArray(result)
+      ? result.filter(isVerifiedAndCurrent)
+      : [];
+  } catch (error) {
+    jobs = [];
+    loadFailed = true;
+
+    console.error(
+      "ChaufCI : échec du chargement des offres.",
+      error
+    );
+  } finally {
+    isLoading = false;
+    renderJobs();
+  }
+}
+
+function setupSearch() {
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    updateQuickFilters();
+    renderJobs();
+
+    document.querySelector("#jobs")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+
+  keywordInput?.addEventListener("input", renderJobs);
   citySelect?.addEventListener("change", renderJobs);
 
   categorySelect?.addEventListener("change", () => {
@@ -397,4 +422,5 @@ function updateFooterYear() {
 document.addEventListener("DOMContentLoaded", () => {
   setupSearch();
   updateFooterYear();
+  loadJobsFromDatabase();
 });
