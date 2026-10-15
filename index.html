@@ -1,160 +1,158 @@
 
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102b46">
-  <meta name="description" content="Trouvez des offres d'emploi de chauffeur en Côte d'Ivoire. Explorez les opportunités et consultez les sources des annonces.">
-  <title>ChaufCI — Trouvez votre prochain emploi</title>
+  <meta name="description" content="Discover driver and chauffeur job opportunities across Côte d'Ivoire with ChaufCI.">
+  <title>ChaufCI — Driver Jobs in Ivory Coast</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="index.html" aria-label="ChaufCI, accueil">
-        <span>Chauf<span class="logo-accent">CI</span></span>
+      <a class="logo" href="index.html" aria-label="ChaufCI home">
+        Chauf<span class="logo-accent">CI</span>
       </a>
 
-      <nav aria-label="Navigation principale">
-        <a href="jobs.html">Trouver un emploi</a>
-        <a href="#how">Comment ça marche</a>
-      </nav>
+      <details class="nav-drawer">
+        <summary aria-label="Open navigation menu">
+          <span aria-hidden="true">☰</span>
+          <span>Menu</span>
+        </summary>
+        <nav aria-label="Main navigation">
+          <a href="jobs.html">Job offers</a>
+          <a href="how-to-use.html">How to use</a>
+          <a href="check.html">Check</a>
+          <a href="apply.html">Apply</a>
+        </nav>
+      </details>
 
-      <a class="nav-cta" href="jobs.html">Voir les offres →</a>
+      <a class="nav-cta" href="jobs.html">View offers →</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">CHAUFFEUR · TRANSPORT · CÔTE D'IVOIRE</p>
+        <p class="eyebrow">EMPLOYMENT · TRANSPORT · IVORY COAST</p>
 
-        <h1>La prochaine étape de votre carrière commence <span>sur la route.</span></h1>
+        <h1>Your next driving job starts <span>here.</span></h1>
 
         <p>
-          Découvrez des opportunités pour chauffeurs, comparez les informations
-          disponibles et accédez aux annonces originales des recruteurs.
+          Find opportunities, review conditions and check the original
+          source before applying.
         </p>
-
-        <a class="button" href="jobs.html">
-          Explorer les emplois <span aria-hidden="true">→</span>
-        </a>
 
         <p class="trust-line">
-          Des annonces sourcées. Des informations claires.
-          Une recherche plus simple.
+          Clear information. Visible dates. Apply safely.
         </p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="search-section home-search">
       <div class="container">
-        <p class="section-kicker">EXPLOREZ LES OPPORTUNITÉS</p>
-        <h2>Quel type de conduite recherchez-vous ?</h2>
-        <p class="section-description">
-          Commencez par le poste qui correspond à votre expérience et à vos objectifs.
-        </p>
+        <p class="section-kicker">QUICK SEARCH</p>
+        <h2>What kind of job are you looking for?</h2>
 
-        <div class="steps-grid">
-          <a class="step-card category-card" href="jobs.html?category=personnel">
-            <span class="step-number">01</span>
-            <h3>Chauffeur personnel</h3>
-            <p>Conduite privée, déplacements et services aux particuliers.</p>
-            <span>Explorer les postes →</span>
-          </a>
+        <form id="home-search-form" action="jobs.html" method="get">
+          <div class="field">
+            <label for="home-keyword">Keyword</label>
+            <input
+              id="home-keyword"
+              name="keyword"
+              type="search"
+              placeholder="e.g. driver, delivery"
+            >
+          </div>
 
-          <a class="step-card category-card" href="jobs.html?category=entreprise">
-            <span class="step-number">02</span>
-            <h3>Chauffeur d'entreprise</h3>
-            <p>Transport professionnel et déplacements liés aux activités d'entreprise.</p>
-            <span>Explorer les postes →</span>
-          </a>
+          <div class="field">
+            <label for="home-city">City or area</label>
+            <select id="home-city" name="city">
+              <option value="">All areas</option>
+              <option value="Abidjan">Abidjan</option>
+              <option value="Soubré">Soubré</option>
+              <option value="Côte d'Ivoire">Other regions</option>
+            </select>
+          </div>
 
-          <a class="step-card category-card" href="jobs.html?category=livraison">
-            <span class="step-number">03</span>
-            <h3>Livraison et coursier</h3>
-            <p>Livraison de marchandises, courses et transport de proximité.</p>
-            <span>Explorer les postes →</span>
-          </a>
+          <div class="field">
+            <label for="home-category">Job type</label>
+            <select id="home-category" name="category">
+              <option value="">All categories</option>
+              <option value="personnel">Personal driver</option>
+              <option value="entreprise">Company driver</option>
+              <option value="livraison">Delivery / courier</option>
+              <option value="poids-lourd">Heavy-duty truck</option>
+              <option value="organisation">NGO / organisation</option>
+            </select>
+          </div>
 
-          <a class="step-card category-card" href="jobs.html?category=poids-lourd">
-            <span class="step-number">04</span>
-            <h3>Chauffeur poids lourd</h3>
-            <p>Transport routier et conduite de véhicules lourds.</p>
-            <span>Explorer les postes →</span>
-          </a>
+          <button type="submit">Search →</button>
+        </form>
 
-          <a class="step-card category-card" href="jobs.html?category=organisation">
-            <span class="step-number">05</span>
-            <h3>ONG et organisations</h3>
-            <p>Opportunités de conduite auprès d'organisations et de projets.</p>
-            <span>Explorer les postes →</span>
-          </a>
-
-          <a class="step-card category-card" href="jobs.html">
-            <span class="step-number">06</span>
-            <h3>Toutes les offres</h3>
-            <p>Parcourez les annonces disponibles et utilisez les filtres de recherche.</p>
-            <span>Accéder à la recherche →</span>
-          </a>
+        <div class="home-popular">
+          <strong>Popular searches</strong>
+          <a href="jobs.html?category=poids-lourd">Heavy-duty</a>
+          <a href="jobs.html?category=livraison">Delivery</a>
+          <a href="jobs.html?category=personnel">Personal driver</a>
+          <a href="jobs.html?category=organisation">NGO</a>
         </div>
       </div>
     </section>
 
-    <section class="how-section" id="how">
+    <section class="section home-categories">
       <div class="container">
-        <p class="section-kicker">COMMENT ÇA MARCHE</p>
-        <h2>De la recherche à la candidature</h2>
+        <p class="section-kicker">FIND YOUR CATEGORY</p>
+        <h2>Explore driving jobs</h2>
 
         <div class="steps-grid">
-          <article class="step-card">
-            <span class="step-number">01</span>
-            <h3>Trouvez</h3>
-            <p>Recherchez par ville, catégorie de poste ou mot-clé.</p>
-          </article>
+          <a class="step-card category-card"
+             href="jobs.html?category=personnel">
+            <h3>Personal driver</h3>
+            <span>View jobs →</span>
+          </a>
 
-          <article class="step-card">
-            <span class="step-number">02</span>
-            <h3>Vérifiez</h3>
-            <p>Consultez les détails de l'annonce, sa date et sa source.</p>
-          </article>
+          <a class="step-card category-card"
+             href="jobs.html?category=entreprise">
+            <h3>Company driver</h3>
+            <span>View jobs →</span>
+          </a>
 
-          <article class="step-card">
-            <span class="step-number">03</span>
-            <h3>Postulez</h3>
-            <p>Suivez les instructions indiquées par le recruteur original.</p>
-          </article>
+          <a class="step-card category-card"
+             href="jobs.html?category=livraison">
+            <h3>Delivery / courier</h3>
+            <span>View jobs →</span>
+          </a>
+
+          <a class="step-card category-card"
+             href="jobs.html?category=poids-lourd">
+            <h3>Heavy-duty truck</h3>
+            <span>View jobs →</span>
+          </a>
+
+          <a class="step-card category-card"
+             href="jobs.html?category=organisation">
+            <h3>NGOs and organisations</h3>
+            <span>View jobs →</span>
+          </a>
         </div>
+
+        <a class="button" href="jobs.html">Explore all offers →</a>
       </div>
     </section>
 
     <section class="safety-section">
       <div class="container">
         <div class="safety-content">
-          <p class="section-kicker">VOTRE SÉCURITÉ COMPTE</p>
-          <h2>Une recherche d'emploi plus prudente</h2>
+          <p class="section-kicker">STAY SAFE</p>
+          <h2>Check before you apply</h2>
           <p>
-            Vérifiez toujours l'identité du recruteur. Ne payez pas de frais
-            pour obtenir un emploi et ne partagez pas vos informations bancaires
-            avec des contacts non vérifiés.
+            Verify the recruiter and review the original job posting.
+            Never pay recruitment fees to get a job.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="safety-content">
-          <p class="section-kicker">À PROPOS DE CHAUFCI</p>
-          <h2>Les bonnes informations avant de postuler</h2>
-          <p>
-            ChaufCI est conçu pour faciliter la recherche d'emplois de chauffeur
-            en Côte d'Ivoire. Les annonces doivent provenir de sources consultables
-            et être contrôlées avant publication. Les postes et les conditions
-            restent soumis aux recruteurs.
-          </p>
-          <a class="button" href="jobs.html">Accéder aux offres →</a>
+          <a href="check.html">Learn how to check an offer →</a>
         </div>
       </div>
     </section>
@@ -164,17 +162,21 @@
     <div class="container">
       <div>
         <a class="logo" href="index.html">
-          <span>Chauf<span class="logo-accent">CI</span></span>
+          Chauf<span class="logo-accent">CI</span>
         </a>
-        <p>Faciliter la recherche d'emploi pour les chauffeurs en Côte d'Ivoire.</p>
+        <p>A clearer job search for drivers in Ivory Coast.</p>
+        <nav class="footer-links" aria-label="Job seeker guide">
+          <a href="how-to-use.html">How to use</a>
+          <a href="check.html">Check</a>
+          <a href="apply.html">Apply</a>
+        </nav>
       </div>
 
-      <div>
-        <p><a href="jobs.html">Rechercher un emploi</a></p>
-        <p><a href="#how">Comment ça marche</a></p>
+      <div class="footer-credit">
+        <p>A product of <a href="https://github.com/hackygrey3-design">HackyTech</a></p>
+        <p>© <span id="year">2026</span> ChaufCI</p>
+        <p>The offers remain subject to the terms and conditions of their publishers.</p>
       </div>
-
-      <p>© 2026 ChaufCI. Informations soumises aux conditions des recruteurs.</p>
     </div>
   </footer>
 </body>
