@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b46">
+  <meta name="description" content="Recherchez des offres d'emploi de chauffeur en Côte d'Ivoire par ville, catégorie et mot-clé.">
+  <title>Offres d'emploi — ChaufCI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="supabase.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Chauf<span class="logo-accent">CI</span></a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="#jobs">Offres d'emploi</a>
+      </nav>
+      <a class="nav-cta" href="index.html#how">Comment ça marche</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="jobs-page-hero">
+      <div class="container">
+        <p class="eyebrow">EMPLOI · TRANSPORT · CÔTE D'IVOIRE</p>
+        <h1>Trouvez votre prochain <span>poste de chauffeur.</span></h1>
+        <p>Recherchez par poste, ville ou mot-clé. Consultez les annonces originales avant de postuler.</p>
+      </div>
+    </section>
+
+    <section class="search-section jobs-search">
+      <div class="container">
+        <p class="section-kicker">VOTRE RECHERCHE</p>
+        <h2>Quel emploi recherchez-vous ?</h2>
+
+        <form id="search-form">
+          <div class="field">
+            <label for="keyword">Mot-clé</label>
+            <input id="keyword" name="keyword" type="search" placeholder="Ex. chauffeur, livraison" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="city">Ville ou zone</label>
+            <select id="city" name="city">
+              <option value="">Toutes les zones</option>
+              <option value="Abidjan">Abidjan</option>
+              <option value="Soubré">Soubré</option>
+              <option value="Côte d'Ivoire">Autres régions</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="category">Type de poste</label>
+            <select id="category" name="category">
+              <option value="">Toutes les catégories</option>
+              <option value="personnel">Chauffeur personnel</option>
+              <option value="entreprise">Chauffeur d'entreprise</option>
+              <option value="livraison">Livraison / coursier</option>
+              <option value="poids-lourd">Poids lourd</option>
+              <option value="organisation">Organisation / ONG</option>
+            </select>
+          </div>
+
+          <button type="submit">Rechercher →</button>
+        </form>
+
+        <div class="quick-filters" aria-label="Filtres populaires">
+          <span>Rechercher par catégorie :</span>
+          <button type="button" data-filter="personnel">Chauffeur personnel</button>
+          <button type="button" data-filter="entreprise">Entreprise</button>
+          <button type="button" data-filter="livraison">Livraison</button>
+          <button type="button" data-filter="poids-lourd">Poids lourd</button>
+          <button type="button" data-filter="organisation">ONG</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="jobs" class="section jobs-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">RÉSULTATS</p>
+            <h2>Offres disponibles</h2>
+            <p class="section-description">Consultez les conditions, la date de vérification et la source de chaque annonce.</p>
+          </div>
+          <span id="result-count" aria-live="polite">Chargement des offres…</span>
+        </div>
+
+        <div class="listing-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <strong>La fiabilité avant la quantité</strong>
+            <p>Seules les annonces publiées, vérifiées et encore valides sont affichées.</p>
+          </div>
+        </div>
+
+        <div id="job-list" class="job-list" aria-live="polite" aria-busy="true"></div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">⌕</div>
+          <h3>Aucune offre vérifiée pour le moment</h3>
+          <p>Essayez d'autres filtres ou revenez consulter ChaufCI lorsque de nouvelles annonces auront été vérifiées.</p>
+          <button id="reset" type="button">Effacer les filtres</button>
+        </div>
+
+        <p class="source-note">
+          <strong>Conseil de sécurité :</strong>
+          vérifiez l'identité du recruteur et ne payez jamais de frais pour obtenir un emploi.
+        </p>
+
+        <p><a href="index.html">← Retour à l'accueil ChaufCI</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <a class="logo" href="index.html">Chauf<span class="logo-accent">CI</span></a>
+        <p>Une recherche d'emploi plus claire pour les chauffeurs en Côte d'Ivoire.</p>
+      </div>
+      <p><a href="index.html#how">Comment ça marche</a></p>
+      <p>© <span id="year"></span> ChaufCI</p>
+    </div>
+  </footer>
+</body>
+</html>
