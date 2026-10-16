@@ -6,7 +6,7 @@
   const submitButton = form?.querySelector('button[type="submit"]');
   const SUPABASE_URL = "https://jxsnuxjmunucrnehbfex.supabase.co";
   // Public publishable key only. Never place a service-role key in browser code.
-  const SUPABASE_KEY = "sb_publishable_zxJyny1-D-r_OqWBDg_5jg_5jg_Xs5KlwSv".replace("_5jg_5jg", "_5jg");
+  const SUPABASE_KEY = "sb_publishable_zxJyny1-D-r_OqWBDg_5jg_Xs5KlwSv";
 
   const setStatus = (message, kind) => {
     if (!statusBox) return;
@@ -56,14 +56,6 @@
       };
     } catch (error) {
       setStatus(error.message, "error");
-      return;
-    }
-
-    if (Object.values(payload).some((value) => typeof value === "string" && value.length === 0 &&
-      ["employer_name", "contact_name", "contact_email", "contact_phone", "job_title", "city", "category", "description"].includes(
-        Object.keys(payload).find((key) => payload[key] === value)
-      ))) {
-      setStatus("Veuillez remplir tous les champs obligatoires.", "error");
       return;
     }
 
