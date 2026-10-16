@@ -1,183 +1,90 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102b46">
-  <meta name="description" content="Discover driver and chauffeur job opportunities across Côte d'Ivoire with ChaufCI.">
-  <title>ChaufCI — Driver Jobs in Ivory Coast</title>
+  <meta name="description" content="Discover driver jobs and other work opportunities across Côte d'Ivoire with ChaufCI.">
+  <title>ChaufCI — Jobs in Côte d'Ivoire</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .careers-promo { padding: 52px 0; background: #f3f8fc; border-top: 1px solid #e1ebf3; }
+    .careers-promo .container { max-width: 900px; }
+    .careers-promo h2 { margin: 0 0 12px; color: var(--navy); font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .careers-promo .button { display: inline-flex; align-items: center; justify-content: center; min-height: 45px; margin-top: 10px; padding: 10px 16px; color: #fff; background: var(--blue); border-radius: 9px; font-weight: 750; }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="index.html" aria-label="ChaufCI home">
-        Chauf<span class="logo-accent">CI</span>
-      </a>
-
+      <a class="logo" href="index.html" aria-label="ChaufCI home">Chauf<span class="logo-accent">CI</span></a>
       <details class="nav-drawer">
-        <summary aria-label="Open navigation menu">
-          <span aria-hidden="true">☰</span>
-          <span>Menu</span>
-        </summary>
+        <summary aria-label="Open navigation menu"><span aria-hidden="true">☰</span><span>Menu</span></summary>
         <nav aria-label="Main navigation">
-          <a href="jobs.html">Job offers</a>
+          <a href="jobs.html">Driving jobs</a>
+          <a href="careers.html">Other jobs · Careers</a>
           <a href="how-to-use.html">How to use</a>
           <a href="check.html">Check</a>
           <a href="apply.html">Apply</a>
         </nav>
       </details>
-
-      <a class="nav-cta" href="jobs.html">View offers →</a>
+      <a class="nav-cta" href="jobs.html">Driving offers →</a>
     </div>
   </header>
-
   <main>
     <section class="hero">
       <div class="container">
         <p class="eyebrow">EMPLOYMENT · TRANSPORT · IVORY COAST</p>
-
         <h1>Your next driving job starts <span>here.</span></h1>
-
-        <p>
-          Find opportunities, review conditions and check the original
-          source before applying.
-        </p>
-
-        <p class="trust-line">
-          Clear information. Visible dates. Apply safely.
-        </p>
+        <p>Find opportunities, review conditions and check the original source before applying.</p>
+        <p class="trust-line">Clear information. Visible dates. Apply safely.</p>
       </div>
     </section>
-
     <section class="search-section home-search">
       <div class="container">
         <p class="section-kicker">QUICK SEARCH</p>
-        <h2>What kind of job are you looking for?</h2>
-
+        <h2>What kind of driving job are you looking for?</h2>
         <form id="home-search-form" action="jobs.html" method="get">
-          <div class="field">
-            <label for="home-keyword">Keyword</label>
-            <input
-              id="home-keyword"
-              name="keyword"
-              type="search"
-              placeholder="e.g. driver, delivery"
-            >
-          </div>
-
-          <div class="field">
-            <label for="home-city">City or area</label>
-            <select id="home-city" name="city">
-              <option value="">All areas</option>
-              <option value="Abidjan">Abidjan</option>
-              <option value="Soubré">Soubré</option>
-              <option value="Côte d'Ivoire">Other regions</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="home-category">Job type</label>
-            <select id="home-category" name="category">
-              <option value="">All categories</option>
-              <option value="personnel">Personal driver</option>
-              <option value="entreprise">Company driver</option>
-              <option value="livraison">Delivery / courier</option>
-              <option value="poids-lourd">Heavy-duty truck</option>
-              <option value="organisation">NGO / organisation</option>
-            </select>
-          </div>
-
+          <div class="field"><label for="home-keyword">Keyword</label><input id="home-keyword" name="keyword" type="search" placeholder="e.g. driver, delivery"></div>
+          <div class="field"><label for="home-city">City or area</label><select id="home-city" name="city"><option value="">All areas</option><option value="Abidjan">Abidjan</option><option value="Soubré">Soubré</option><option value="Côte d'Ivoire">Other regions</option></select></div>
+          <div class="field"><label for="home-category">Job type</label><select id="home-category" name="category"><option value="">All categories</option><option value="personnel">Personal driver</option><option value="entreprise">Company driver</option><option value="livraison">Delivery / courier</option><option value="poids-lourd">Heavy-duty truck</option><option value="organisation">NGO / organisation</option></select></div>
           <button type="submit">Search →</button>
         </form>
-
-        <div class="home-popular">
-          <strong>Popular searches</strong>
-          <a href="jobs.html?category=poids-lourd">Heavy-duty</a>
-          <a href="jobs.html?category=livraison">Delivery</a>
-          <a href="jobs.html?category=personnel">Personal driver</a>
-          <a href="jobs.html?category=organisation">NGO</a>
-        </div>
+        <div class="home-popular"><strong>Popular searches</strong><a href="jobs.html?category=poids-lourd">Heavy-duty</a><a href="jobs.html?category=livraison">Delivery</a><a href="jobs.html?category=personnel">Personal driver</a><a href="jobs.html?category=organisation">NGO</a></div>
       </div>
     </section>
-
     <section class="section home-categories">
       <div class="container">
-        <p class="section-kicker">FIND YOUR CATEGORY</p>
-        <h2>Explore driving jobs</h2>
-
+        <p class="section-kicker">FIND YOUR CATEGORY</p><h2>Explore driving jobs</h2>
         <div class="steps-grid">
-          <a class="step-card category-card"
-             href="jobs.html?category=personnel">
-            <h3>Personal driver</h3>
-            <span>View jobs →</span>
-          </a>
-
-          <a class="step-card category-card"
-             href="jobs.html?category=entreprise">
-            <h3>Company driver</h3>
-            <span>View jobs →</span>
-          </a>
-
-          <a class="step-card category-card"
-             href="jobs.html?category=livraison">
-            <h3>Delivery / courier</h3>
-            <span>View jobs →</span>
-          </a>
-
-          <a class="step-card category-card"
-             href="jobs.html?category=poids-lourd">
-            <h3>Heavy-duty truck</h3>
-            <span>View jobs →</span>
-          </a>
-
-          <a class="step-card category-card"
-             href="jobs.html?category=organisation">
-            <h3>NGOs and organisations</h3>
-            <span>View jobs →</span>
-          </a>
+          <a class="step-card category-card" href="jobs.html?category=personnel"><h3>Personal driver</h3><span>View jobs →</span></a>
+          <a class="step-card category-card" href="jobs.html?category=entreprise"><h3>Company driver</h3><span>View jobs →</span></a>
+          <a class="step-card category-card" href="jobs.html?category=livraison"><h3>Delivery / courier</h3><span>View jobs →</span></a>
+          <a class="step-card category-card" href="jobs.html?category=poids-lourd"><h3>Heavy-duty truck</h3><span>View jobs →</span></a>
+          <a class="step-card category-card" href="jobs.html?category=organisation"><h3>NGOs and organisations</h3><span>View jobs →</span></a>
         </div>
-
-        <a class="button" href="jobs.html">Explore all offers →</a>
+        <a class="button" href="jobs.html">Explore all driving offers →</a>
       </div>
     </section>
-
-    <section class="safety-section">
+    <section class="careers-promo">
       <div class="container">
-        <div class="safety-content">
-          <p class="section-kicker">STAY SAFE</p>
-          <h2>Check before you apply</h2>
-          <p>
-            Verify the recruiter and review the original job posting.
-            Never pay recruitment fees to get a job.
-          </p>
-          <a href="check.html">Learn how to check an offer →</a>
-        </div>
+        <p class="section-kicker">MORE THAN DRIVING</p>
+        <h2>Looking for a different kind of job?</h2>
+        <p class="section-description">Explore cashier, reception, customer-relations, sales, hotel and restaurant job leads around Grand-Bassam and beyond. Each lead has a clear verification status.</p>
+        <a class="button" href="careers.html">Explore other jobs →</a>
       </div>
+    </section>
+    <section class="safety-section">
+      <div class="container"><div class="safety-content">
+        <p class="section-kicker">STAY SAFE</p><h2>Check before you apply</h2>
+        <p>Verify the recruiter and review the original job posting. Never pay recruitment fees to get a job.</p>
+        <a href="check.html">Learn how to check an offer →</a>
+      </div></div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div>
-        <a class="logo" href="index.html">
-          Chauf<span class="logo-accent">CI</span>
-        </a>
-        <p>A clearer job search for drivers in Ivory Coast.</p>
-        <nav class="footer-links" aria-label="Job seeker guide">
-          <a href="how-to-use.html">How to use</a>
-          <a href="check.html">Check</a>
-          <a href="apply.html">Apply</a>
-        </nav>
-      </div>
-
-      <div class="footer-credit">
-        <p>A product of <a href="https://github.com/hackygrey3-design">HackyTech</a></p>
-        <p>© <span id="year">2026</span> ChaufCI</p>
-        <p>The offers remain subject to the terms and conditions of their publishers.</p>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container">
+    <div><a class="logo" href="index.html">Chauf<span class="logo-accent">CI</span></a><p>A clearer job search in Ivory Coast.</p><nav class="footer-links" aria-label="Job seeker guide"><a href="how-to-use.html">How to use</a><a href="check.html">Check</a><a href="apply.html">Apply</a><a href="careers.html">Other jobs</a></nav></div>
+    <div class="footer-credit"><p>A product of <a href="https://github.com/hackygrey3-design">HackyTech</a></p><p>© <span id="year">2026</span> ChaufCI</p><p>The offers remain subject to the terms and conditions of their publishers.</p></div>
+  </div></footer>
 </body>
 </html>
