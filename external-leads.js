@@ -69,6 +69,96 @@ document.addEventListener("DOMContentLoaded", () => {
       url: "https://www.educarriere.ci/offre-155890-chauffeur-securite.html",
       source: "Educarriere"
     }
+    ,{
+      category: "personnel",
+      title: "Chauffeur personnel",
+      employer: "Un particulier — annonce publiée sur Educarriere",
+      location: "Abidjan",
+      deadline: "14 novembre 2026",
+      status: "Annonce publiée le 16 octobre — disponibilité et coordonnées à vérifier avant d’envoyer des documents",
+      url: "https://www.educarriere.ci/offre-157044-chauffeur-personnel.html",
+      source: "Educarriere"
+    },
+    {
+      category: "entreprise",
+      title: "Chauffeurs de car et de course d’entreprise",
+      employer: "HR Business Center",
+      location: "Riviera, Abidjan",
+      deadline: "29 octobre 2026",
+      status: "Salaire annoncé sur la source : 130 000 FCFA pour chauffeur de car, 110 000 FCFA pour chauffeur de course entreprise — vérifier directement",
+      url: "https://jobivoire.ci/job/Lgupl3iza",
+      source: "Jobivoire (annonce relayée d’Educarriere)"
+    },
+    {
+      category: "entreprise",
+      title: "Chauffeur — transport de responsable et matériel",
+      employer: "AELITE CONSTRUCTION",
+      location: "Abidjan — bureaux et chantiers",
+      deadline: "20 octobre 2026",
+      status: "Annonce récente — confirmer que le recrutement est toujours ouvert",
+      url: "https://www.jobivoire.ci/job/iwn27Q7xm",
+      source: "Jobivoire"
+    },
+    {
+      category: "entreprise",
+      title: "Chauffeur polyvalent",
+      employer: "Kema Service",
+      location: "Cocody, Abidjan",
+      deadline: "30 octobre 2026",
+      status: "Salaire de 150 000 FCFA affiché par la source — demander les conditions écrites et confirmer l’ouverture",
+      url: "https://jobivoire.ci/job/hJ0FCurm6",
+      source: "Jobivoire"
+    },
+    {
+      category: "livraison",
+      title: "Coursier motorisé d’entreprise",
+      employer: "AFREX",
+      location: "Cocody, Abidjan",
+      deadline: "31 octobre 2026",
+      status: "Annonce récente — rémunération non communiquée; vérifier permis, véhicule et conditions",
+      url: "https://jobivoire.ci/job/MQKGrsFTq",
+      source: "Jobivoire"
+    },
+    {
+      category: "livraison",
+      title: "Livreur à moto (H/F)",
+      employer: "PSI GROUPE",
+      location: "Cocody Angré, terminus 81/82",
+      deadline: "31 octobre 2026",
+      status: "Salaire de base annoncé : 120 000 FCFA/mois — vérifier les conditions de contrat et les pièces exigées",
+      url: "https://www.jobivoire.ci/job/L29rUEMfV",
+      source: "Jobivoire"
+    },
+    {
+      category: "livraison",
+      title: "Chauffeur-coursier d’hôtel (H/F)",
+      employer: "Cabinet Helios International",
+      location: "Abidjan",
+      deadline: "Non indiquée dans l’extrait consulté",
+      status: "Annonce publiée le 15 octobre — CDD, BEPC et permis B indiqués; vérifier que l’offre est encore ouverte",
+      url: "https://projobivoire.com/jobs/chauffeur-coursier-dhotel-h-f-cabinet-helios-international-abidjan/",
+      source: "Projobivoire"
+    },
+    {
+      category: "poids-lourd",
+      title: "Chauffeur gros camion",
+      employer: "Entreprise de missions médicales (nom non affiché dans l’extrait)",
+      location: "Marcory, Abidjan",
+      deadline: "1 novembre 2026",
+      status: "Annonce publiée le 14 octobre — nom et coordonnées du recruteur à vérifier avant candidature",
+      url: "https://educarriere.ci/offre-156929-chauffeur-gros-camion.html",
+      source: "Educarriere"
+    },
+    {
+      category: "organisation",
+      title: "Driver, G-2 — nomination temporaire 364 jours",
+      employer: "UNICEF",
+      location: "Soubré / antenne Man, Côte d’Ivoire",
+      deadline: "19 octobre 2026",
+      status: "Annonce officielle UNICEF — clôture imminente; vérifier les exigences et postuler uniquement sur le portail officiel",
+      url: "https://jobs.unicef.org/mob/cw/fr/job/596246/driver-g2-ta-364-days-138830-man-outpost-soubre-cote-divoire-wcar",
+      source: "UNICEF Careers"
+    }
   ];
 
   const sources = [
