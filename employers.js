@@ -59,6 +59,28 @@
       return;
     }
 
+    const fieldRules = [
+      ["employer_name", "Le nom de l’entreprise", 2, 160],
+      ["contact_name", "Le nom du contact", 2, 160],
+      ["contact_email", "L’e-mail", 5, 254],
+      ["job_title", "L’intitulé du poste", 5, 160],
+      ["city", "La ville / zone", 2, 100],
+      ["description", "La description", 20, 10000]
+    ];
+    for (const [field, label, min, max] of fieldRules) {
+      const value = payload[field];
+      if (value.length < min || value.length > max) {
+        setStatus(label + " doit contenir entre " + min + " et " + max + " caractères utiles.", "error");
+        form.elements.namedItem(field)?.focus();
+        return;
+      }
+    }
+    if (!payload.category) {
+      setStatus("Veuillez choisir une catégorie.", "error");
+      form.elements.namedItem("category")?.focus();
+      return;
+    }
+
     submitButton.disabled = true;
     submitButton.textContent = "Envoi en cours…";
     setStatus("Envoi de votre offre pour examen…", "info");
