@@ -119,6 +119,27 @@
           <button id="reset" type="button">Effacer les filtres</button>
         </div>
 
+        <section class="external-leads" aria-labelledby="external-leads-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">SOURCES PARTENAIRES</p>
+              <h2 id="external-leads-title">Autres pistes de recrutement</h2>
+              <p class="section-description">Annonces repérées sur des sites d'emploi externes. Elles ne sont pas confirmées par ChaufCI : vérifiez la disponibilité et l'identité du recruteur sur la source avant de postuler.</p>
+            </div>
+            <span id="external-count" aria-live="polite">Chargement…</span>
+          </div>
+          <div class="external-filter-row" aria-label="Filtrer les pistes externes">
+            <button type="button" data-external-filter="all" aria-pressed="true">Toutes</button>
+            <button type="button" data-external-filter="personnel" aria-pressed="false">Chauffeur personnel</button>
+            <button type="button" data-external-filter="entreprise" aria-pressed="false">Entreprise</button>
+            <button type="button" data-external-filter="livraison" aria-pressed="false">Livraison / coursier</button>
+            <button type="button" data-external-filter="poids-lourd" aria-pressed="false">Poids lourd</button>
+            <button type="button" data-external-filter="organisation" aria-pressed="false">ONG / organisation</button>
+          </div>
+          <div id="external-lead-list" class="job-list"></div>
+          <p class="source-note">ChaufCI ne garantit pas les annonces externes. Ne payez jamais de frais de dossier, de formation ou de recrutement.</p>
+        </section>
+
         <p class="source-note">
           <strong>Conseil de sécurité :</strong>
           vérifiez l'identité du recruteur et ne payez jamais de frais pour obtenir un emploi.
@@ -139,5 +160,6 @@
       <p>© <span id="year"></span> ChaufCI</p>
     </div>
   </footer>
+  <script src="external-leads.js" defer></script>
 </body>
 </html>
