@@ -52,15 +52,15 @@
 
           <div class="field">
             <label for="employer-name">Entreprise / employeur *</label>
-            <input id="employer-name" name="employer_name" maxlength="120" required autocomplete="organization">
+            <input id="employer-name" name="employer_name" minlength="2" maxlength="120" required autocomplete="organization">
           </div>
           <div class="field">
             <label for="contact-name">Nom du contact *</label>
-            <input id="contact-name" name="contact_name" maxlength="120" required autocomplete="name">
+            <input id="contact-name" name="contact_name" minlength="2" maxlength="120" required autocomplete="name">
           </div>
           <div class="field">
             <label for="contact-email">E-mail *</label>
-            <input id="contact-email" name="contact_email" type="email" maxlength="254" required autocomplete="email">
+            <input id="contact-email" name="contact_email" type="email" minlength="5" maxlength="254" required autocomplete="email">
           </div>
           <div class="field">
             <label for="contact-phone">Téléphone *</label>
@@ -68,11 +68,11 @@
           </div>
           <div class="field">
             <label for="job-title">Intitulé du poste *</label>
-            <input id="job-title" name="job_title" maxlength="160" required placeholder="Ex. Caissier / Caissière">
+            <input id="job-title" name="job_title" minlength="5" maxlength="160" required placeholder="Ex. Caissier / Caissière">
           </div>
           <div class="field">
             <label for="city">Ville / zone *</label>
-            <input id="city" name="city" maxlength="100" required placeholder="Ex. Grand-Bassam">
+            <input id="city" name="city" minlength="2" maxlength="100" required placeholder="Ex. Grand-Bassam">
           </div>
           <div class="field">
             <label for="category">Catégorie *</label>
@@ -93,7 +93,7 @@
           </div>
           <div class="field">
             <label for="description">Description et conditions *</label>
-            <textarea id="description" name="description" maxlength="5000" rows="6" required placeholder="Missions, expérience demandée, horaires et conditions de travail."></textarea>
+            <textarea id="description" name="description" minlength="20" maxlength="5000" rows="6" required placeholder="Missions, expérience demandée, horaires et conditions de travail."></textarea>
           </div>
           <div class="field">
             <label for="application-url">Lien de candidature (facultatif)</label>
