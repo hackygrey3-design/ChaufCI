@@ -39,6 +39,11 @@
     }
 
     const data = new FormData(form);
+    // Basic honeypot to filter naive automated submissions; not a substitute for server-side rate limiting.
+    if (String(data.get("website") || "").trim()) {
+      setStatus("Impossible de traiter cette soumission. Vérifiez le formulaire et réessayez.", "error");
+      return;
+    }
     let payload;
     try {
       payload = {
