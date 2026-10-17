@@ -157,9 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
       url: "https://jobs.unicef.org/mob/cw/fr/job/596246/driver-g2-ta-364-days-138830-man-outpost-soubre-cote-divoire-wcar",
       source: "UNICEF Careers"
     }
-  ];
-
-    {
+,
+{
       category: "poids-lourd",
       title: "Conducteur routier gros gabarit — 30 postes",
       employer: "Entreprise de transport routier (nom non affiché dans l’extrait)",
@@ -242,7 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
       checked: "17 octobre 2026",
       url: "https://projobivoire.com/jobs/chauffeur-coursier-dhotel-h-f-cabinet-helios-international-abidjan/",
       source: "Projobivoire"
-    },
+    }
+  ];
   const sources = [
     { category: "personnel", title: "Rechercher chauffeurs personnels", detail: "Recherche d'annonces récentes — ce lien n'est pas une offre précise.", url: "https://www.google.com/search?q=site%3Ajobivoire.ci%2Fjob+chauffeur+personnel+C%C3%B4te+d%27Ivoire" },
     { category: "entreprise", title: "Rechercher chauffeurs d'entreprise", detail: "Recherche d'annonces récentes — vérifier chaque résultat.", url: "https://www.google.com/search?q=site%3Ajobivoire.ci%2Fjob+chauffeur+entreprise+Abidjan" },
