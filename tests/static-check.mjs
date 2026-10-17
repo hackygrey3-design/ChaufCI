@@ -24,6 +24,16 @@ assert.match(employerScript, /data\.get\("website"\)/, "Employer submission hand
 assert.match(employerScript, /status:\s*"pending"/, "Employer submissions must remain pending moderation");
 assert.doesNotMatch(employerScript + supabaseConfig, /service_role|SUPABASE_SERVICE_ROLE_KEY/i, "Browser files must not contain a Supabase service-role key");
 
+const migration = readFileSync(new URL("../supabase/migrations/20261016_expand_job_categories.sql", import.meta.url), "utf8");
+const categories = [...employerPage.matchAll(/<option value="([^"]+)">/g)]
+  .map((match) => match[1])
+  .filter((value) => value);
+const categoryCheck = migration.match(/alter table public\.job_submissions[\s\S]*?check \(category in \(([\s\S]*?)\)\);/);
+assert.ok(categoryCheck, "Category migration must define the job_submissions category allowlist");
+const migrationCategories = [...categoryCheck[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
+assert.deepEqual([...categories].sort(), [...migrationCategories].sort(), "Employer form categories must match the database migration allowlist");
+assert.match(migration, /has not been applied to any database|proposed only/i, "Category migration must remain clearly marked as unapplied until approved");
+
 const urls = [...leads.matchAll(/url:\s*"([^"]+)"/g)].map((match) => match[1]);
 assert.ok(urls.length >= 20, `Expected at least 20 sourced leads, found ${urls.length}`);
 assert.ok(urls.every((url) => url.startsWith("https://")), "Every external lead URL must use HTTPS");
