@@ -15,6 +15,15 @@ assert.match(careers, /career-more-filters/, "Careers page should use the expand
 assert.match(careers, /Caissier·ère d'hôtel/, "Careers page should include the hotel cashier lead");
 assert.match(careers, /Agent de nettoyage d'hôtel/, "Careers page should include the hotel cleaning lead");
 
+
+const employerPage = readFileSync(new URL("../employers.html", import.meta.url), "utf8");
+const employerScript = readFileSync(new URL("../employers.js", import.meta.url), "utf8");
+const supabaseConfig = readFileSync(new URL("../supabase.js", import.meta.url), "utf8");
+assert.match(employerPage, /name="website"/, "Employer submission form should include a honeypot field");
+assert.match(employerScript, /data\.get\("website"\)/, "Employer submission handler must reject filled honeypots");
+assert.match(employerScript, /status:\s*"pending"/, "Employer submissions must remain pending moderation");
+assert.doesNotMatch(employerScript + supabaseConfig, /service_role|SUPABASE_SERVICE_ROLE_KEY/i, "Browser files must not contain a Supabase service-role key");
+
 const urls = [...leads.matchAll(/url:\s*"([^"]+)"/g)].map((match) => match[1]);
 assert.ok(urls.length >= 20, `Expected at least 20 sourced leads, found ${urls.length}`);
 assert.ok(urls.every((url) => url.startsWith("https://")), "Every external lead URL must use HTTPS");
