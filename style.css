@@ -1065,3 +1065,66 @@ p {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* Refined menus and progressive disclosure */
+.nav-drawer summary { user-select: none; }
+.nav-drawer summary span:first-child { font-size: 1.1rem; line-height: 1; }
+.nav-drawer nav { max-height: min(70vh, 460px); overflow-y: auto; }
+.more-categories { margin-top: 20px; }
+.more-categories > summary, .more-filters > summary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 43px; padding: 10px 15px; color: var(--blue);
+  background: #fff; border: 1px solid #cbdbe9; border-radius: 10px;
+  font-size: .9rem; font-weight: 800; cursor: pointer; list-style: none;
+}
+.more-categories > summary::-webkit-details-marker, .more-filters > summary::-webkit-details-marker { display: none; }
+.more-categories[open] > summary, .more-filters[open] > summary { color: var(--navy); background: var(--soft-blue); }
+.more-category-grid { margin-top: 14px; }
+.category-icon {
+  display: inline-grid; place-items: center; width: 42px; height: 42px;
+  margin-bottom: 18px; color: var(--green-dark); background: var(--soft-green);
+  border: 1px solid #d7eee3; border-radius: 12px; font-size: 1.25rem; font-weight: 900;
+}
+.more-filters { position: relative; }
+.more-filter-options {
+  position: absolute; top: calc(100% + 8px); left: 0; z-index: 8;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px;
+  width: min(420px, calc(100vw - 56px)); padding: 12px;
+  background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+}
+.more-filter-options [data-filter] { text-align: left; }
+.more-filters[open] { z-index: 9; }
+.careers-promo .button + .button { margin-left: 8px; }
+@media (max-width: 600px) {
+  .site-header > .container { flex-wrap: nowrap; gap: 9px; }
+  .nav-drawer { flex: 0 0 auto; margin-left: auto; }
+  .nav-drawer summary { padding: 8px 10px; }
+  .nav-cta { flex: 0 0 auto; max-width: 48%; white-space: normal; text-align: center; }
+  .nav-drawer nav { min-width: min(260px, calc(100vw - 28px)); }
+  .more-filter-options { position: static; width: 100%; margin-top: 8px; grid-template-columns: 1fr; }
+  .more-filters { width: 100%; }
+  .more-filters > summary, .more-categories > summary { width: 100%; justify-content: space-between; }
+  .careers-promo .button { width: 100%; margin-left: 0 !important; }
+}
+@media (min-width: 601px) { .more-filter-options { min-width: 330px; } }
+
+/* Clear, scannable external vacancy details */
+.external-lead-card { border-top: 3px solid #8bb8d6; }
+.external-lead-meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 18px; margin:12px 0; padding:13px; background:#f5f8fb; border-radius:10px; }
+.external-lead-meta p { margin:0; line-height:1.5; overflow-wrap:anywhere; }
+.external-lead-card .job-company { line-height:1.5; }
+@media(max-width:640px) { .external-lead-meta { grid-template-columns:1fr; gap:8px; } }
+
+/* Low-friction spam trap for the public employer submission form */
+.form-trap {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

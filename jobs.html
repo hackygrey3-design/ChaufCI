@@ -15,11 +15,18 @@
   <header class="site-header">
     <div class="container">
       <a class="logo" href="index.html">Chauf<span class="logo-accent">CI</span></a>
-      <nav aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="#jobs">Offres d'emploi</a>
-      </nav>
-      <a class="nav-cta" href="index.html#how">Comment ça marche</a>
+      <details class="nav-drawer">
+        <summary aria-label="Ouvrir le menu"><span aria-hidden="true">☰</span><span>Menu</span></summary>
+        <nav aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="jobs.html">Emplois chauffeur</a>
+          <a href="careers.html">Autres emplois</a>
+          <a href="employers.html">Employeurs</a>
+          <a href="how-to-use.html">Guide ChaufCI</a>
+          <a href="check.html">Vérifier une offre</a>
+        </nav>
+      </details>
+      <a class="nav-cta" href="#jobs">Voir les offres ↓</a>
     </div>
   </header>
 
@@ -27,8 +34,8 @@
     <section class="jobs-page-hero">
       <div class="container">
         <p class="eyebrow">EMPLOI · TRANSPORT · CÔTE D'IVOIRE</p>
-        <h1>Trouvez votre prochain <span>poste de chauffeur.</span></h1>
-        <p>Recherchez par poste, ville ou mot-clé. Consultez les annonces originales avant de postuler.</p>
+        <h1>Trouvez votre prochain <span>emploi.</span></h1>
+        <p>Recherchez des offres de conduite et d’autres métiers par poste, ville ou mot-clé. Consultez les annonces originales avant de postuler.</p>
       </div>
     </section>
 
@@ -47,7 +54,10 @@
             <label for="city">Ville ou zone</label>
             <select id="city" name="city">
               <option value="">Toutes les zones</option>
+              <option value="Grand-Bassam">Grand-Bassam</option>
               <option value="Abidjan">Abidjan</option>
+              <option value="Bouaké">Bouaké</option>
+              <option value="San-Pédro">San-Pédro</option>
               <option value="Soubré">Soubré</option>
               <option value="Côte d'Ivoire">Autres régions</option>
             </select>
@@ -62,6 +72,12 @@
               <option value="livraison">Livraison / coursier</option>
               <option value="poids-lourd">Poids lourd</option>
               <option value="organisation">Organisation / ONG</option>
+              <option value="cashier">Caisse / caissier·ère</option>
+              <option value="customer-service">Relation client / accueil</option>
+              <option value="hospitality">Hôtellerie / restauration</option>
+              <option value="sales">Vente / commercial</option>
+              <option value="administration">Administration / réception</option>
+              <option value="other">Autre métier</option>
             </select>
           </div>
 
@@ -69,12 +85,23 @@
         </form>
 
         <div class="quick-filters" aria-label="Filtres populaires">
-          <span>Rechercher par catégorie :</span>
+          <span>Filtres rapides :</span>
           <button type="button" data-filter="personnel">Chauffeur personnel</button>
-          <button type="button" data-filter="entreprise">Entreprise</button>
           <button type="button" data-filter="livraison">Livraison</button>
-          <button type="button" data-filter="poids-lourd">Poids lourd</button>
-          <button type="button" data-filter="organisation">ONG</button>
+          <button type="button" data-filter="cashier">Caisse</button>
+          <details class="more-filters">
+            <summary>Plus de catégories <span aria-hidden="true">＋</span></summary>
+            <div class="more-filter-options">
+              <button type="button" data-filter="entreprise">Entreprise</button>
+              <button type="button" data-filter="poids-lourd">Poids lourd</button>
+              <button type="button" data-filter="organisation">ONG</button>
+              <button type="button" data-filter="customer-service">Relation client</button>
+              <button type="button" data-filter="hospitality">Hôtellerie</button>
+              <button type="button" data-filter="sales">Vente</button>
+              <button type="button" data-filter="administration">Administration</button>
+              <button type="button" data-filter="other">Autre</button>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -107,6 +134,27 @@
           <button id="reset" type="button">Effacer les filtres</button>
         </div>
 
+        <section class="external-leads" aria-labelledby="external-leads-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">SOURCES PARTENAIRES</p>
+              <h2 id="external-leads-title">Autres pistes de recrutement</h2>
+              <p class="section-description">Annonces repérées sur des sites d'emploi externes. Elles ne sont pas confirmées par ChaufCI : vérifiez la disponibilité et l'identité du recruteur sur la source avant de postuler.</p>
+            </div>
+            <span id="external-count" aria-live="polite">Chargement…</span>
+          </div>
+          <div class="external-filter-row" aria-label="Filtrer les pistes externes">
+            <button type="button" data-external-filter="all" aria-pressed="true">Toutes</button>
+            <button type="button" data-external-filter="personnel" aria-pressed="false">Chauffeur personnel</button>
+            <button type="button" data-external-filter="entreprise" aria-pressed="false">Entreprise</button>
+            <button type="button" data-external-filter="livraison" aria-pressed="false">Livraison / coursier</button>
+            <button type="button" data-external-filter="poids-lourd" aria-pressed="false">Poids lourd</button>
+            <button type="button" data-external-filter="organisation" aria-pressed="false">ONG / organisation</button>
+          </div>
+          <div id="external-lead-list" class="job-list"></div>
+          <p class="source-note">ChaufCI ne garantit pas les annonces externes. Ne payez jamais de frais de dossier, de formation ou de recrutement.</p>
+        </section>
+
         <p class="source-note">
           <strong>Conseil de sécurité :</strong>
           vérifiez l'identité du recruteur et ne payez jamais de frais pour obtenir un emploi.
@@ -127,5 +175,6 @@
       <p>© <span id="year"></span> ChaufCI</p>
     </div>
   </footer>
+  <script src="external-leads.js" defer></script>
 </body>
 </html>

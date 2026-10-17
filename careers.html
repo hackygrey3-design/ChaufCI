@@ -13,11 +13,18 @@
   <header class="site-header">
     <div class="container">
       <a class="logo" href="index.html" aria-label="Accueil ChaufCI">Chauf<span class="logo-accent">CI</span></a>
-      <nav aria-label="Navigation principale">
-        <a href="index.html">Emplois de conduite</a>
-        <a href="#opportunities">Autres emplois</a>
-      </nav>
-      <a class="nav-cta" href="#opportunities">Explorer les pistes ↓</a>
+      <details class="nav-drawer">
+        <summary aria-label="Ouvrir le menu"><span aria-hidden="true">☰</span><span>Menu</span></summary>
+        <nav aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <a href="jobs.html">Emplois chauffeur</a>
+          <a href="careers.html">Autres emplois</a>
+          <a href="employers.html">Employeurs</a>
+          <a href="how-to-use.html">Guide ChaufCI</a>
+          <a href="check.html">Vérifier une offre</a>
+        </nav>
+      </details>
+      <a class="nav-cta" href="#opportunities">Voir les pistes ↓</a>
     </div>
   </header>
 
@@ -26,7 +33,7 @@
       <div class="container">
         <p class="eyebrow">CHAUFCI CAREERS · GRAND-BASSAM & CÔTE D'IVOIRE</p>
         <h1>Votre prochain emploi ne se limite pas à la conduite.</h1>
-        <p>Explorez les pistes en caisse, accueil, relation client, vente et hôtellerie. Nous indiquons clairement ce qui est confirmé, à vérifier ou expiré.</p>
+        <p>Explorez les pistes en caisse, nettoyage, sécurité, cuisine, accueil, vente et hôtellerie. Nous indiquons clairement ce qui est confirmé, à vérifier ou expiré.</p>
         <div class="careers-trust">
           <span>✓ Liens vers les sources</span>
           <span>✓ Statut visible</span>
@@ -44,7 +51,15 @@
           <button type="button" class="active" data-filter="all" aria-pressed="true">Toutes les pistes</button>
           <button type="button" data-filter="cashier" aria-pressed="false">Caisse</button>
           <button type="button" data-filter="customer" aria-pressed="false">Accueil / relation client</button>
-          <button type="button" data-filter="hospitality" aria-pressed="false">Hôtellerie / restauration</button>
+          <details class="career-more-filters">
+            <summary>Autres métiers <span aria-hidden="true">＋</span></summary>
+            <div class="career-more-filter-options">
+              <button type="button" data-filter="hospitality" aria-pressed="false">Hôtellerie / restauration</button>
+              <button type="button" data-filter="cleaning" aria-pressed="false">Nettoyage / entretien</button>
+              <button type="button" data-filter="security" aria-pressed="false">Sécurité / gardiennage</button>
+              <button type="button" data-filter="kitchen" aria-pressed="false">Cuisine / service</button>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -55,9 +70,9 @@
           <div>
             <p class="section-kicker">PISTES REPÉRÉES</p>
             <h2>À vérifier avant de postuler</h2>
-            <p class="section-description">Les annonces affichées avec une date limite restent à confirmer auprès de l’employeur. Les annonces anciennes ou expirées sont clairement signalées.</p>
+            <p class="section-description">Les annonces affichées avec une date limite restent à confirmer auprès de l’employeur. Les annonces anciennes ou expirées sont clairement signalées. Les nouvelles pistes en nettoyage, sécurité et cuisine ne sont pas encore confirmées directement par les employeurs.</p>
           </div>
-          <span id="career-count" aria-live="polite">8 pistes</span>
+          <span id="career-count" aria-live="polite">11 pistes</span>
         </div>
 
         <div class="career-list" id="career-list">
@@ -189,9 +204,108 @@
             </div>
           </article>
 
+          <article class="career-card" data-category="cleaning">
+            <div class="career-card-head">
+              <span class="status-pill status-check">À confirmer auprès de l'employeur</span>
+              <span class="career-location">Grand-Bassam · lieu exact à vérifier</span>
+            </div>
+            <h3>Agent d'entretien / aide-ménagère · piste à vérifier</h3>
+            <p class="career-summary">Une page publiée en octobre 2026 annonce un poste de nettoyage à Grand-Bassam, mais le site source n'est pas une page officielle de recrutement de l'employeur. Vérifiez directement l'identité de l'entreprise, l'adresse, le salaire et si le recrutement est toujours ouvert avant d'envoyer un CV.</p>
+            <dl class="career-meta">
+              <div><dt>Secteur</dt><dd>Nettoyage / entretien des locaux</dd></div>
+              <div><dt>Statut</dt><dd>Non confirmé par l'employeur</dd></div>
+            </dl>
+            <div class="career-actions">
+              <a class="apply-link" href="https://fr.couriersers.org/jobs/aide-menagere-journalier-3/" target="_blank" rel="noopener noreferrer">Lire la piste externe et vérifier ↗</a>
+            </div>
+          </article>
+
+          <article class="career-card" data-category="security">
+            <div class="career-card-head">
+              <span class="status-pill status-check">Annonce antérieure — confirmer</span>
+              <span class="career-location">Grand-Bassam / Bonoua / Aboisso</span>
+            </div>
+            <h3>Agent de sécurité · Eyali & Intérim Group</h3>
+            <p class="career-summary">Une publication datée de juin 2026 mentionnait des recrutements d'agents de sécurité dans plusieurs localités, dont Grand-Bassam. La publication est ancienne et ne prouve pas que des postes sont encore ouverts. Contactez l'agence via sa page publique pour vérifier les besoins actuels et les conditions avant de transmettre vos documents.</p>
+            <dl class="career-meta">
+              <div><dt>Secteur</dt><dd>Sécurité / gardiennage</dd></div>
+              <div><dt>Statut</dt><dd>Disponibilité actuelle non confirmée</dd></div>
+            </dl>
+            <div class="career-actions">
+              <a class="apply-link" href="https://www.findglocal.com/CI/Bingerville/1744957352224459/Eyali-%26-int%C3%A9rim-group" target="_blank" rel="noopener noreferrer">Vérifier la publication de l'agence ↗</a>
+            </div>
+          </article>
+
+          <article class="career-card" data-category="kitchen hospitality">
+            <div class="career-card-head">
+              <span class="status-pill status-check">À confirmer auprès de l'employeur</span>
+              <span class="career-location">Grand-Bassam · lieu exact à vérifier</span>
+            </div>
+            <h3>Personnel de cuisine / service · piste à vérifier</h3>
+            <p class="career-summary">Une page publiée en octobre 2026 affiche un poste de serveur en restauration à Grand-Bassam. Ce site externe ne suffit pas à confirmer que l'hôtel recrute réellement aujourd'hui : vérifiez l'annonce sur le canal officiel de l'établissement avant de postuler et ne payez aucun frais.</p>
+            <dl class="career-meta">
+              <div><dt>Secteur</dt><dd>Aide-cuisine / service en salle</dd></div>
+              <div><dt>Statut</dt><dd>Non confirmé par l'employeur</dd></div>
+            </dl>
+            <div class="career-actions">
+              <a class="apply-link" href="https://fr.couriersers.org/jobs/serveur-de-restaurant-2/" target="_blank" rel="noopener noreferrer">Lire la piste externe et vérifier ↗</a>
+            </div>
+          </article>
+
+          <article class="career-card" data-category="cashier hospitality customer">
+            <div class="career-card-head">
+              <span class="status-pill status-check">Annonce récente · à confirmer</span>
+              <span class="career-location">Abidjan</span>
+            </div>
+            <h3>Caissier·ère d'hôtel · Cabinet Helios International</h3>
+            <p class="career-summary">Annonce publiée le 15 octobre 2026 pour un poste en CDD dans un hôtel à Abidjan. Les tâches comprennent les encaissements, les clôtures de caisse et le suivi des recettes. La source indique un niveau Bac à Bac+2 et 1 à 2 ans d'expérience. Aucune date limite n'apparaît sur la fiche consultée : confirmez que le recrutement est toujours ouvert.</p>
+            <dl class="career-meta"><div><dt>Contrat</dt><dd>CDD selon la source</dd></div><div><dt>Profil affiché</dt><dd>Bac à Bac+2 · 1 à 2 ans d'expérience</dd></div><div><dt>Vérifié le</dt><dd>17 octobre 2026 · source externe, disponibilité à confirmer</dd></div></dl>
+            <div class="career-actions"><a class="apply-link" href="https://projobivoire.com/jobs/caissier-dhotel-h-f-cabinet-helios-international-abidjan/" target="_blank" rel="noopener noreferrer">Consulter l'annonce originale ↗</a></div>
+          </article>
+          <article class="career-card" data-category="customer hospitality">
+            <div class="career-card-head">
+              <span class="status-pill status-check">Date limite affichée · à confirmer</span>
+              <span class="career-location">Abidjan</span>
+            </div>
+            <h3>Agent d'accueil d'hôtel · Cabinet Helios International</h3>
+            <p class="career-summary">Annonce publiée le 15 octobre 2026, avec une date limite affichée au 30 novembre 2026. Le poste comprend l'accueil des clients, les réservations, les arrivées et départs et le suivi des demandes. La source indique un CDD, un niveau Bac à Bac+2 et 1 à 2 ans d'expérience. Confirmez l'ouverture et les conditions auprès du recruteur.</p>
+            <dl class="career-meta"><div><dt>Contrat</dt><dd>CDD selon la source</dd></div><div><dt>Profil affiché</dt><dd>Bac à Bac+2 · 1 à 2 ans d'expérience</dd></div><div><dt>Vérifié le</dt><dd>17 octobre 2026 · source externe</dd></div></dl>
+            <div class="career-actions"><a class="apply-link" href="https://projobivoire.com/jobs/agent-de-service-accueil-dhotel-h-f-cabinet-helios-international-abidjan/" target="_blank" rel="noopener noreferrer">Consulter l'annonce originale ↗</a></div>
+          </article>
+          <article class="career-card" data-category="cleaning hospitality">
+            <div class="career-card-head">
+              <span class="status-pill status-check">Annonce récente · à confirmer</span>
+              <span class="career-location">Abidjan</span>
+            </div>
+            <h3>Agent de nettoyage d'hôtel · Cabinet Helios International</h3>
+            <p class="career-summary">Annonce publiée le 15 octobre 2026 pour le nettoyage et la remise en état des chambres et espaces communs d'un hôtel. La source indique un CDD, un profil CEPE/BEPC et 6 mois à 1 an d'expérience. La date limite n'est pas indiquée ; confirmez la disponibilité via la source.</p>
+            <dl class="career-meta"><div><dt>Contrat</dt><dd>CDD selon la source</dd></div><div><dt>Profil affiché</dt><dd>CEPE / BEPC · 6 mois à 1 an d'expérience</dd></div><div><dt>Vérifié le</dt><dd>17 octobre 2026 · source externe</dd></div></dl>
+            <div class="career-actions"><a class="apply-link" href="https://projobivoire.com/jobs/agent-de-nettoyage-dhotel-h-f-cabinet-helios-international-abidjan/" target="_blank" rel="noopener noreferrer">Consulter l'annonce originale ↗</a></div>
+          </article>
+          <article class="career-card" data-category="hospitality kitchen">
+            <div class="career-card-head">
+              <span class="status-pill status-check">Annonce récente · à confirmer</span>
+              <span class="career-location">Abidjan</span>
+            </div>
+            <h3>Plongeur / aide en cuisine d'hôtel · Cabinet Helios International</h3>
+            <p class="career-summary">Annonce publiée le 15 octobre 2026. Les tâches comprennent le lavage de la vaisselle, la propreté de la cuisine et l'aide aux préparations simples. La source indique un CDD, un niveau CEPE/BEPC et accepte les débutants. La date limite n'est pas indiquée ; vérifiez la disponibilité avant de candidater.</p>
+            <dl class="career-meta"><div><dt>Contrat</dt><dd>CDD selon la source</dd></div><div><dt>Profil affiché</dt><dd>CEPE / BEPC · débutants acceptés</dd></div><div><dt>Vérifié le</dt><dd>17 octobre 2026 · source externe</dd></div></dl>
+            <div class="career-actions"><a class="apply-link" href="https://projobivoire.com/jobs/plongeur-aide-en-cuisine-dhotel-h-f-cabinet-helios-international-abidjan/" target="_blank" rel="noopener noreferrer">Consulter l'annonce originale ↗</a></div>
+          </article>
+          <article class="career-card" data-category="hospitality kitchen">
+            <div class="career-card-head">
+              <span class="status-pill status-check">Annonce récente · à confirmer</span>
+              <span class="career-location">Abidjan</span>
+            </div>
+            <h3>Serveur·euse d'hôtel · Cabinet Helios International</h3>
+            <p class="career-summary">Annonce publiée le 15 octobre 2026 pour le service en salle, au bar et en room service. La source indique un CDD, un niveau BEPC minimum et 1 à 2 ans d'expérience. La date limite n'est pas indiquée. Vérifiez les horaires, le salaire et la disponibilité auprès de la source.</p>
+            <dl class="career-meta"><div><dt>Contrat</dt><dd>CDD selon la source</dd></div><div><dt>Profil affiché</dt><dd>BEPC minimum · 1 à 2 ans d'expérience</dd></div><div><dt>Vérifié le</dt><dd>17 octobre 2026 · source externe</dd></div></dl>
+            <div class="career-actions"><a class="apply-link" href="https://projobivoire.com/jobs/serveur-dhotel-h-f-cabinet-helios-international-abidjan/" target="_blank" rel="noopener noreferrer">Consulter l'annonce originale ↗</a></div>
+          </article>
+
         </div>
 
-        <div class="career-empty" id="career-empty" hidden>
+        <div class="career-empty" id="career-empty" hidden
           <h3>Aucune piste dans cette catégorie</h3>
           <p>Choisissez une autre catégorie ou affichez toutes les pistes.</p>
         </div>

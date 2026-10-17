@@ -11,7 +11,13 @@ const CATEGORY_LABELS = {
   entreprise: "Chauffeur d'entreprise",
   livraison: "Livraison / coursier",
   "poids-lourd": "Poids lourd",
-  organisation: "Organisation / ONG"
+  organisation: "Organisation / ONG",
+  cashier: "Caisse / caissier·ère",
+  "customer-service": "Relation client / accueil",
+  hospitality: "Hôtellerie / restauration",
+  sales: "Vente / commercial",
+  administration: "Administration / réception",
+  other: "Autre métier"
 };
 
 const form = document.querySelector("#search-form");

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b46">
+  <meta name="description" content="Proposez une offre d'emploi sur ChaufCI. Les annonces sont examinées avant publication.">
+  <title>Employeurs — publier une offre | ChaufCI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="careers.css">
+  <script src="employers.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Chauf<span class="logo-accent">CI</span></a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="jobs.html">Emplois chauffeur</a>
+        <a href="careers.html">Autres carrières</a>
+      </nav>
+      <a class="nav-cta" href="#submit-job">Proposer une offre</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="jobs-page-hero">
+      <div class="container">
+        <p class="eyebrow">ESPACE EMPLOYEURS</p>
+        <h1>Recrutez avec <span>ChaufCI.</span></h1>
+        <p>Partagez votre offre avec des candidats en Côte d’Ivoire. Chaque proposition reste en attente de vérification avant publication.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container employer-layout">
+        <div>
+          <p class="section-kicker">COMMENT ÇA MARCHE</p>
+          <h2>Une offre claire. Une vérification avant publication.</h2>
+          <ol class="employer-steps">
+            <li><strong>Envoyez les détails</strong><span>Décrivez le poste, le lieu et les conditions.</span></li>
+            <li><strong>ChaufCI examine l’offre</strong><span>La soumission n’est pas publiée automatiquement.</span></li>
+            <li><strong>Publication après validation</strong><span>Les candidats verront l’annonce seulement si elle est approuvée et à jour.</span></li>
+          </ol>
+          <p class="source-note">N’envoyez aucun mot de passe ni document confidentiel dans ce formulaire. Les champs marqués * sont obligatoires.</p>
+        </div>
+
+        <form id="employer-form" class="employer-form">
+          <p class="section-kicker">FORMULAIRE EMPLOYEUR</p>
+          <h2 id="submit-job">Proposer une offre d’emploi</h2>
+          <div id="form-status" class="form-status" role="status" aria-live="polite" hidden></div>
+
+          <div class="form-trap" aria-hidden="true">
+            <label for="employer-website">Laisser ce champ vide</label>
+            <input id="employer-website" name="website" type="text" tabindex="-1" autocomplete="off" autocapitalize="off" spellcheck="false">
+          </div>
+          <div class="field">
+            <label for="employer-name">Entreprise / employeur *</label>
+            <input id="employer-name" name="employer_name" minlength="2" maxlength="120" required autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="contact-name">Nom du contact *</label>
+            <input id="contact-name" name="contact_name" minlength="2" maxlength="120" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="contact-email">E-mail *</label>
+            <input id="contact-email" name="contact_email" type="email" minlength="5" maxlength="254" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="contact-phone">Téléphone *</label>
+            <input id="contact-phone" name="contact_phone" type="tel" maxlength="40" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="job-title">Intitulé du poste *</label>
+            <input id="job-title" name="job_title" minlength="5" maxlength="160" required placeholder="Ex. Caissier / Caissière">
+          </div>
+          <div class="field">
+            <label for="city">Ville / zone *</label>
+            <input id="city" name="city" minlength="2" maxlength="100" required placeholder="Ex. Grand-Bassam">
+          </div>
+          <div class="field">
+            <label for="category">Catégorie *</label>
+            <select id="category" name="category" required>
+              <option value="">Choisir une catégorie</option>
+              <option value="personnel">Chauffeur personnel</option>
+              <option value="entreprise">Chauffeur d’entreprise</option>
+              <option value="livraison">Livraison / coursier</option>
+              <option value="poids-lourd">Chauffeur poids lourd</option>
+              <option value="organisation">Organisation / ONG</option>
+              <option value="cashier">Caisse / caissier·ère</option>
+              <option value="customer-service">Relation client / accueil</option>
+              <option value="hospitality">Hôtellerie / restauration</option>
+              <option value="sales">Vente / commercial</option>
+              <option value="administration">Administration / réception</option>
+              <option value="other">Autre métier</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="description">Description et conditions *</label>
+            <textarea id="description" name="description" minlength="20" maxlength="5000" rows="6" required placeholder="Missions, expérience demandée, horaires et conditions de travail."></textarea>
+          </div>
+          <div class="field">
+            <label for="application-url">Lien de candidature (facultatif)</label>
+            <input id="application-url" name="application_url" type="url" maxlength="1000" placeholder="https://…">
+          </div>
+          <div class="field">
+            <label for="source-url">Lien officiel de l’offre ou de l’entreprise (facultatif)</label>
+            <input id="source-url" name="source_url" type="url" maxlength="1000" placeholder="https://…">
+          </div>
+          <button class="employer-submit" type="submit">Envoyer pour vérification</button>
+          <p class="form-note">Envoyer une offre ne garantit pas sa publication. Ne payez pas pour soumettre une annonce.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div><a class="logo" href="index.html">Chauf<span class="logo-accent">CI</span></a><p>Une recherche d’emploi plus claire en Côte d’Ivoire.</p></div>
+      <p><a href="careers.html">Explorer les autres carrières</a></p>
+      <p>© <span id="year"></span> ChaufCI · A product of HackyTech</p>
+    </div>
+  </footer>
+</body>
+</html>

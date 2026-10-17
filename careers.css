@@ -99,3 +99,89 @@
 .direct-employer a { overflow-wrap: anywhere; color: var(--blue); font-weight: 750; }
 .direct-employer .direct-note { margin-top: 12px; padding-top: 10px; border-top: 1px solid #e8eef3; font-size: .83rem; }
 @media (max-width: 700px) { .direct-employer-grid { grid-template-columns: 1fr; } }
+
+
+/* Employer submission hub */
+.employer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 5vw, 56px);
+  align-items: start;
+}
+.employer-layout h2 { margin-top: 0; font-size: clamp(1.5rem, 3vw, 2rem); }
+.employer-steps { padding-left: 22px; }
+.employer-steps li { padding: 0 0 18px 5px; color: var(--text); }
+.employer-steps li strong, .employer-steps li span { display: block; }
+.employer-steps li span { color: var(--muted); font-size: .93rem; }
+.employer-form {
+  min-width: 0;
+  padding: clamp(20px, 4vw, 32px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.employer-form h2 { margin-bottom: 22px; }
+.employer-form .field { margin: 15px 0; }
+.employer-form textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 11px 12px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #ccd8e3;
+  border-radius: 8px;
+  font: inherit;
+  resize: vertical;
+}
+.employer-form textarea:focus { outline: 3px solid #d7eafb; border-color: var(--blue); }
+.employer-submit {
+  width: 100%;
+  min-height: 49px;
+  padding: 12px 16px;
+  color: #fff;
+  background: var(--blue);
+  border: 0;
+  border-radius: 9px;
+  font-weight: 800;
+}
+.employer-submit:hover { background: var(--navy); }
+.form-status { margin: 0 0 16px; padding: 12px 14px; border-radius: 8px; font-size: .92rem; }
+.form-status[data-kind="success"] { color: #075c3d; background: #eaf8f0; border: 1px solid #bfe7d0; }
+.form-status[data-kind="error"] { color: #8b2525; background: #fff0f0; border: 1px solid #f0caca; }
+.form-status[data-kind="info"] { color: #214f78; background: #edf6ff; border: 1px solid #cde4f8; }
+.form-note { margin: 14px 0 0; color: var(--muted); font-size: .83rem; }
+@media (max-width: 760px) {
+  .employer-layout { grid-template-columns: 1fr; }
+  .employer-form { padding: 20px; }
+}
+
+
+/* Progressive disclosure for the careers filter menu */
+.career-more-filters { position:relative; }
+.career-more-filters > summary {
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:40px; padding:8px 13px; color:var(--blue); background:#fff;
+  border:1px solid var(--border); border-radius:9px; font-size:.88rem;
+  font-weight:750; cursor:pointer; list-style:none;
+}
+.career-more-filters > summary::-webkit-details-marker { display:none; }
+.career-more-filters[open] > summary { background:var(--soft-blue); border-color:#9fc7e8; }
+.career-more-filter-options {
+  position:absolute; top:calc(100% + 8px); left:0; z-index:10;
+  display:grid; grid-template-columns:1fr; gap:7px; width:min(300px,calc(100vw - 40px));
+  padding:10px; background:#fff; border:1px solid var(--border);
+  border-radius:12px; box-shadow:var(--shadow);
+}
+.career-more-filter-options button { width:100%; text-align:left; }
+.careers-hero .career-hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.career-hero-actions a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 15px; border-radius:9px; font-weight:800; }
+.career-hero-actions .primary { color:#102b46; background:#a8e6cc; }
+.career-hero-actions .secondary { color:#fff; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.25); }
+@media(max-width:700px) {
+  .career-more-filters { flex:1 1 100%; }
+  .career-more-filters > summary { width:100%; justify-content:space-between; }
+  .career-more-filter-options { position:static; width:100%; margin-top:8px; }
+  .careers-hero .career-hero-actions { flex-direction:column; }
+  .career-hero-actions a { width:100%; }
+}
