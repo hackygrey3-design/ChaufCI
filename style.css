@@ -1115,3 +1115,16 @@ p {
 .external-lead-meta p { margin:0; line-height:1.5; overflow-wrap:anywhere; }
 .external-lead-card .job-company { line-height:1.5; }
 @media(max-width:640px) { .external-lead-meta { grid-template-columns:1fr; gap:8px; } }
+
+/* Low-friction spam trap for the public employer submission form */
+.form-trap {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
