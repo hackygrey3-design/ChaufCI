@@ -161,6 +161,76 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
+    {
+      category: "poids-lourd",
+      title: "Conducteur routier gros gabarit — 30 postes",
+      employer: "Entreprise de transport routier (nom non affiché dans l’extrait)",
+      location: "Tournées nationales et sous-régionales",
+      deadline: "31 octobre 2026 à 17 h (source)",
+      status: "CDD évolutif vers CDI selon la source; permis BCDE et 3 ans d’expérience demandés. Employeur à identifier avant envoi de documents.",
+      contract: "CDD évolutif CDI",
+      salary: "Base + indemnités selon performance; montant non précisé",
+      requirements: "Permis B, C, D et E; 3 ans d’expérience en poids lourd",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/conducteur-routier-gros-gabarit-h-f-transport-de-ciment-cote-divoire/",
+      source: "Projobivoire"
+    },
+    {
+      category: "poids-lourd",
+      title: "Chauffeurs poids lourds — SOTIV CI",
+      employer: "SOTIV CI (Société de Transformations Ivoirienne)",
+      location: "Abidjan",
+      deadline: "Non indiquée dans l’extrait consulté",
+      status: "Annonce publiée le 14 octobre 2026. Vérifier l’ouverture et les conditions directement auprès de l’entreprise.",
+      contract: "Non précisé",
+      salary: "Non communiqué",
+      requirements: "Permis C/E valide, expérience confirmée en véhicules lourds, connaissance du réseau routier national",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/chauffeurs-poids-lourds-mecaniciens-et-commerciaux-h-f-sotiv-ci-abidjan/",
+      source: "Projobivoire"
+    },
+    {
+      category: "livraison",
+      title: "Livreur à moto — LTH Group CI",
+      employer: "LTH Group CI",
+      location: "Abidjan",
+      deadline: "15 novembre 2026 (source)",
+      status: "Annonce publiée le 16 octobre 2026. CDD selon la source; confirmez les conditions avant de transmettre vos documents.",
+      contract: "CDD",
+      salary: "Non précisé dans l’extrait",
+      requirements: "Permis moto valide, connaissance des quartiers d’Abidjan et sens du service",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/livreur-a-moto/",
+      source: "Projobivoire"
+    },
+    {
+      category: "entreprise",
+      title: "Chauffeur — entreprise aéroportuaire",
+      employer: "Jely Group pour une entreprise aéroportuaire",
+      location: "Côte d’Ivoire — lieu exact à confirmer",
+      deadline: "30 octobre 2026 (source)",
+      status: "Annonce publiée le 16 octobre 2026. CDD selon la source; vérifiez le lieu d’affectation et le nom de l’employeur final.",
+      contract: "CDD",
+      salary: "Non communiqué",
+      requirements: "Niveau Bac minimum, 5 ans d’expérience, conduite et entretien courant du véhicule",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/chauffeur-h-f-entreprise-aeroportuaire-cote-divoire/",
+      source: "Projobivoire"
+    },
+    {
+      category: "livraison",
+      title: "Chauffeur-livreur — Groupe Prosuma",
+      employer: "Groupe Prosuma",
+      location: "Abidjan",
+      deadline: "26 octobre 2026 (date affichée dans la liste source)",
+      status: "Annonce listée comme publiée le 6 octobre 2026. Consultez la fiche originale pour vérifier les exigences et l’ouverture.",
+      contract: "Non précisé dans l’extrait",
+      salary: "Non communiqué",
+      requirements: "À vérifier sur la fiche originale",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/",
+      source: "Projobivoire — liste des offres"
+    },
   const sources = [
     { category: "personnel", title: "Rechercher chauffeurs personnels", detail: "Recherche d'annonces récentes — ce lien n'est pas une offre précise.", url: "https://www.google.com/search?q=site%3Ajobivoire.ci%2Fjob+chauffeur+personnel+C%C3%B4te+d%27Ivoire" },
     { category: "entreprise", title: "Rechercher chauffeurs d'entreprise", detail: "Recherche d'annonces récentes — vérifier chaque résultat.", url: "https://www.google.com/search?q=site%3Ajobivoire.ci%2Fjob+chauffeur+entreprise+Abidjan" },
@@ -189,7 +259,13 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="job-company">${escapeHTML(item.employer)} · ${escapeHTML(item.location)}</p>
         </div></div>
         <p class="job-description"><strong>Statut :</strong> ${escapeHTML(item.status)}</p>
-        <p class="job-updated"><strong>Date limite affichée :</strong> ${escapeHTML(item.deadline)}</p>
+        <div class="external-lead-meta">
+          <p class="job-updated"><strong>Échéance affichée :</strong> ${escapeHTML(item.deadline)}</p>
+          ${item.contract ? `<p class="job-updated"><strong>Contrat :</strong> ${escapeHTML(item.contract)}</p>` : ""}
+          ${item.salary ? `<p class="job-updated"><strong>Rémunération :</strong> ${escapeHTML(item.salary)}</p>` : ""}
+          ${item.requirements ? `<p class="job-updated"><strong>Profil :</strong> ${escapeHTML(item.requirements)}</p>` : ""}
+          ${item.checked ? `<p class="job-updated"><strong>Source vérifiée le :</strong> ${escapeHTML(item.checked)} — cela ne confirme pas l'ouverture du poste.</p>` : ""}
+        </div>
         <p class="job-updated"><strong>Source :</strong> ${escapeHTML(item.source)}</p>
         <div class="job-actions"><a class="apply-link" href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">Consulter l’annonce originale ↗</a></div>
       </article>
