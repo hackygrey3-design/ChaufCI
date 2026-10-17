@@ -50,6 +50,10 @@
           <h2 id="submit-job">Proposer une offre d’emploi</h2>
           <div id="form-status" class="form-status" role="status" aria-live="polite" hidden></div>
 
+          <div class="form-trap" aria-hidden="true">
+            <label for="employer-website">Laisser ce champ vide</label>
+            <input id="employer-website" name="website" type="text" tabindex="-1" autocomplete="off" autocapitalize="off" spellcheck="false">
+          </div>
           <div class="field">
             <label for="employer-name">Entreprise / employeur *</label>
             <input id="employer-name" name="employer_name" minlength="2" maxlength="120" required autocomplete="organization">
