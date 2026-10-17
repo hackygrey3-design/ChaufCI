@@ -51,13 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       category: "personnel",
-      title: "Chauffeur personnel — piste externe",
-      employer: "Société Générale Côte d’Ivoire (nom mentionné par le site tiers)",
-      location: "Grand-Bassam (selon le site tiers)",
-      deadline: "Non confirmée",
-      status: "Piste non confirmée par le canal officiel de l’employeur",
-      url: "https://fr.couriersers.org/jobs/chauffeur-personnel-3/",
-      source: "Couriersers.org"
+      title: "Chauffeur personnel",
+      employer: "Un particulier — annonce publiée sur Jobivoire",
+      location: "Abidjan — résidence Plateau ou environs indiquée comme un atout",
+      deadline: "14 novembre 2026 (source)",
+      status: "Annonce publiée le 16 octobre 2026. CDI indiqué; salaire non communiqué. Vérifier l’identité du recruteur et le canal de candidature avant d’envoyer des documents.",
+      contract: "CDI selon la source",
+      salary: "Non communiqué",
+      requirements: "CEPE / BEPC; 3 à 5 ans d’expérience en conduite selon l’annonce",
+      checked: "17 octobre 2026",
+      url: "https://jobivoire.ci/job/zcWKHgP1C",
+      source: "Jobivoire"
     },
     {
       category: "organisation",
@@ -197,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       deadline: "15 novembre 2026 (source)",
       status: "Annonce publiée le 16 octobre 2026. CDD selon la source; confirmez les conditions avant de transmettre vos documents.",
       contract: "CDD",
-      salary: "Non précisé dans l’extrait",
+      salary: "130 000 FCFA (montant affiché par la source; à confirmer)",
       requirements: "Permis moto valide, connaissance des quartiers d’Abidjan et sens du service",
       checked: "17 octobre 2026",
       url: "https://projobivoire.com/jobs/livreur-a-moto/",
