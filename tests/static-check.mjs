@@ -31,7 +31,13 @@ const categories = [...employerPage.matchAll(/<option value="([^"]+)">/g)]
 const categoryCheck = migration.match(/alter table public\.job_submissions[\s\S]*?check \(category in \(([\s\S]*?)\)\);/);
 assert.ok(categoryCheck, "Category migration must define the job_submissions category allowlist");
 const migrationCategories = [...categoryCheck[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
-assert.deepEqual([...categories].sort(), [...migrationCategories].sort(), "Employer form categories must match the database migration allowlist");
+assert.deepEqual([...categories].sort(), [...migrationCategories].sort(), "Employer form categories must match the job_submissions migration allowlist");
+const jobsCategoryCheck = migration.match(/alter table public\\.jobs[\\s\\S]*?check \\(category in \\(([\\s\\S]*?)\\)\\);/);
+assert.ok(jobsCategoryCheck, "Category migration must define the jobs category allowlist");
+const jobsMigrationCategories = [...jobsCategoryCheck[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
+assert.deepEqual([...categories].sort(), [...jobsMigrationCategories].sort(), "Employer form categories must match the jobs migration allowlist");
+assert.match(migration, /begin;[\\s\\S]*commit;/i, "Category migration should be transactional");
+assert.doesNotMatch(migration, /disable row level security|drop policy|truncate|delete from|drop table/i, "Category migration must not weaken RLS or delete production data");
 assert.match(migration, /has not been applied to any database|proposed only/i, "Category migration must remain clearly marked as unapplied until approved");
 
 const urls = [...leads.matchAll(/url:\s*"([^"]+)"/g)].map((match) => match[1]);
