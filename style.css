@@ -1108,3 +1108,10 @@ p {
   .careers-promo .button { width: 100%; margin-left: 0 !important; }
 }
 @media (min-width: 601px) { .more-filter-options { min-width: 330px; } }
+
+/* Clear, scannable external vacancy details */
+.external-lead-card { border-top: 3px solid #8bb8d6; }
+.external-lead-meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 18px; margin:12px 0; padding:13px; background:#f5f8fb; border-radius:10px; }
+.external-lead-meta p { margin:0; line-height:1.5; overflow-wrap:anywhere; }
+.external-lead-card .job-company { line-height:1.5; }
+@media(max-width:640px) { .external-lead-meta { grid-template-columns:1fr; gap:8px; } }
