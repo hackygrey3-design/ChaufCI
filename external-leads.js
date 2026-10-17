@@ -11,13 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const leads = [
     {
       category: "poids-lourd",
-      title: "Chauffeur poids lourd (H/F)",
-      employer: "Élite Intérim — client industriel",
-      location: "Autoroute de Bassam, en quittant Port-Bouët",
-      deadline: "31 octobre 2026",
-      status: "Date limite affichée par la source — à reconfirmer",
-      url: "https://www.educarriere.ci/offre-155682-chauffeur-poids-lourd-h-f.html",
-      source: "Educarriere"
+      title: "Chauffeur poids lourd (H/F) — 5 postes",
+      employer: "Élite Intérim Côte d’Ivoire — client industriel",
+      location: "Autoroute de Bassam, en quittant Port-Bouët (Abidjan)",
+      deadline: "21 novembre 2026 (source Projobivoire)",
+      status: "Offre relue par la plateforme source; date limite affichée. Vérifiez les critères et la disponibilité avant de postuler.",
+      contract: "Intérim",
+      salary: "150 000 FCFA/mois + prime de performance (source)",
+      requirements: "Permis poids lourd valide; détails et expérience à confirmer dans l’annonce",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/chauffeur-poids-lourd-h-f-autoroute-de-bassam/",
+      source: "Projobivoire"
     },
     {
       category: "poids-lourd",
@@ -234,6 +238,20 @@ document.addEventListener("DOMContentLoaded", () => {
       checked: "17 octobre 2026",
       url: "https://projobivoire.com/jobs/",
       source: "Projobivoire — liste des offres"
+    },
+    {
+      category: "entreprise",
+      title: "Chauffeur – Coursier d’hôtel (H/F)",
+      employer: "Cabinet Helios International",
+      location: "Abidjan",
+      deadline: "Non indiquée sur la fiche consultée",
+      status: "Annonce publiée le 15 octobre 2026. Poste en CDD selon la source; vérifiez l’ouverture et le recruteur avant d’envoyer vos documents.",
+      contract: "CDD",
+      salary: "Non communiqué",
+      requirements: "BEPC minimum, permis B; 2 à 3 ans d’expérience en conduite/coursier",
+      checked: "17 octobre 2026",
+      url: "https://projobivoire.com/jobs/chauffeur-coursier-dhotel-h-f-cabinet-helios-international-abidjan/",
+      source: "Projobivoire"
     },
   const sources = [
     { category: "personnel", title: "Rechercher chauffeurs personnels", detail: "Recherche d'annonces récentes — ce lien n'est pas une offre précise.", url: "https://www.google.com/search?q=site%3Ajobivoire.ci%2Fjob+chauffeur+personnel+C%C3%B4te+d%27Ivoire" },
