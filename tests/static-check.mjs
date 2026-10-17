@@ -24,7 +24,7 @@ assert.match(employerScript, /data\.get\("website"\)/, "Employer submission hand
 assert.match(employerScript, /status:\s*"pending"/, "Employer submissions must remain pending moderation");
 assert.doesNotMatch(employerScript + supabaseConfig, /service_role|SUPABASE_SERVICE_ROLE_KEY/i, "Browser files must not contain a Supabase service-role key");
 
-const migration = readFileSync(new URL("../supabase/migrations/20261016_expand_job_categories.sql", import.meta.url), "utf8");
+const migration = readFileSync(new URL("../supabase/migrations/20261017010953_expand_job_categories.sql", import.meta.url), "utf8");
 const categories = [...employerPage.matchAll(/<option value="([^"]+)">/g)]
   .map((match) => match[1])
   .filter((value) => value);
@@ -38,7 +38,7 @@ const jobsMigrationCategories = [...jobsCategoryCheck[1].matchAll(/'([^']+)'/g)]
 assert.deepEqual([...categories].sort(), [...jobsMigrationCategories].sort(), "Employer form categories must match the jobs migration allowlist");
 assert.match(migration, /begin;[\s\S]*commit;/i, "Category migration should be transactional");
 assert.doesNotMatch(migration, /disable row level security|drop policy|truncate|delete from|drop table/i, "Category migration must not weaken RLS or delete production data");
-assert.match(migration, /has not been applied to any database|proposed only/i, "Category migration must remain clearly marked as unapplied until approved");
+assert.match(migration, /recorded version 20261017010953/i, "Category migration must identify the applied Supabase migration version");
 
 const urls = [...leads.matchAll(/url:\s*"([^"]+)"/g)].map((match) => match[1]);
 assert.ok(urls.length >= 20, `Expected at least 20 sourced leads, found ${urls.length}`);
