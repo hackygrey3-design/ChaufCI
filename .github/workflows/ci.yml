@@ -1,0 +1,34 @@
+name: ChaufCI static checks
+
+on:
+  push:
+    branches:
+      - main
+      - chaufci/phase-1-foundations
+      - chaufci/employer-submission-hub
+  pull_request:
+    branches:
+      - main
+      - chaufci/phase-1-foundations
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: |
+          node --check script.js
+          node --check external-leads.js
+          node --check home-categories.js
+          node --check employers.js
+      - name: Check page structure and job lead data
+        run: node tests/static-check.mjs
