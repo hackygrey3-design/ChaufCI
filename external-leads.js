@@ -138,16 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
       source: "Jobivoire"
     },
     {
-      category: "livraison",
-      title: "Chauffeur-coursier d’hôtel (H/F)",
-      employer: "Cabinet Helios International",
-      location: "Abidjan",
-      deadline: "Non indiquée dans l’extrait consulté",
-      status: "Annonce publiée le 15 octobre — CDD, BEPC et permis B indiqués; vérifier que l’offre est encore ouverte",
-      url: "https://projobivoire.com/jobs/chauffeur-coursier-dhotel-h-f-cabinet-helios-international-abidjan/",
-      source: "Projobivoire"
-    },
-    {
       category: "poids-lourd",
       title: "Chauffeur gros camion",
       employer: "Entreprise de missions médicales (nom non affiché dans l’extrait)",
